@@ -1,0 +1,19 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900;
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.gradient-bg {
+  background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.18), transparent 45%), radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 35%);
+}
