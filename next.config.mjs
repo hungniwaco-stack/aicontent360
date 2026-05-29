@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isGithubPages = process.env.GITHUB_ACTIONS === "true";
-const repo = "aicontent360";
+const basePath = process.env.PAGES_BASE_PATH || "";
 
 const nextConfig = {
   output: "export",
@@ -8,10 +7,10 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  ...(isGithubPages
+  ...(basePath
     ? {
-        basePath: `/${repo}`,
-        assetPrefix: `/${repo}/`
+        basePath,
+        assetPrefix: `${basePath}/`
       }
     : {})
 };
