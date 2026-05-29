@@ -1,8 +1,19 @@
-﻿/** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
+const isGithubPages = process.env.GITHUB_ACTIONS === "true";
+const repo = "aicontent360";
+
 const nextConfig = {
+  output: "export",
+  trailingSlash: true,
   images: {
-    remotePatterns: []
-  }
+    unoptimized: true
+  },
+  ...(isGithubPages
+    ? {
+        basePath: `/${repo}`,
+        assetPrefix: `/${repo}/`
+      }
+    : {})
 };
 
 export default nextConfig;
