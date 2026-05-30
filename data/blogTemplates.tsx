@@ -34,9 +34,27 @@ export function BlogDetail({ slug }: { slug: string }) {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return notFound();
   const relatedTools = pickToolsByCategory(post.category);
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Organization",
+      name: post.author
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "AI Content Hub"
+    },
+    mainEntityOfPage: `https://aicontent360.shop/blog/${post.slug}`
+  };
 
   return (
     <div className="container-shell space-y-8 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Breadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Blog", href: "/blog" }, { label: post.title }]} />
       <article className="grid gap-6 lg:grid-cols-[1fr_300px]">
         <div className="rounded-2xl border border-slate-200 bg-white p-6">
