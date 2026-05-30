@@ -26,8 +26,8 @@ export function ToolFilter() {
   const platformCsv = searchParams.get("platform") ?? "";
   const price = searchParams.get("price") ?? "";
 
-  const goals = goalCsv ? goalCsv.split(",") : [];
-  const platforms = platformCsv ? platformCsv.split(",") : [];
+  const goals = useMemo(() => (goalCsv ? goalCsv.split(",") : []), [goalCsv]);
+  const platforms = useMemo(() => (platformCsv ? platformCsv.split(",") : []), [platformCsv]);
 
   const setParam = (key: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString());

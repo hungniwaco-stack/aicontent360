@@ -18,6 +18,12 @@ npm run build
 npm run start
 ```
 
+## Kiểm tra chất lượng trước deploy
+
+```bash
+npm run check
+```
+
 ## Cấu trúc dữ liệu
 
 - `data/tools.ts`: dữ liệu thư viện công cụ AI.
@@ -38,3 +44,7 @@ npm run start
 - `/blog/[slug]`
 - `/gioi-thieu`
 - `/lien-he`
+
+## Checklist production
+
+- Xem file [PRODUCTION_CHECKLIST.md](PRODUCTION_CHECKLIST.md)
