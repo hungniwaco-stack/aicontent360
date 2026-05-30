@@ -49,6 +49,13 @@ export default function Page() {
         <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-700">
           <li>Lọc theo từ khóa, định dạng video, tốc độ tăng tương tác.</li>
           <li>Ưu tiên video có hook mạnh trong 3 giây đầu.</li>
+          <li>
+            Dùng công cụ tìm ngách tại{" "}
+            <a href="https://hungniwaco.shop" className="font-semibold text-brand-700 underline">
+              hungniwaco.shop
+            </a>{" "}
+            để rút ngắn thời gian nghiên cứu.
+          </li>
         </ul>
         <h3 className="mt-4 text-lg font-semibold">2) Phân tích đối thủ và mẫu thắng cuộc</h3>
         <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-700">
