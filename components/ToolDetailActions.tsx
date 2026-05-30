@@ -6,13 +6,13 @@ export function ToolDetailActions() {
   return (
     <div className="mt-6">
       <a
-        href="https://hungniwaco.shop"
+        href="https://hungniwaco.vn"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white"
-        onClick={() => trackEvent("cta_click", { cta_name: "hungniwaco_shop_tool_link", placement: "tool_detail" })}
+        onClick={() => trackEvent("cta_click", { cta_name: "hungniwaco_vn_tool_link", placement: "tool_detail" })}
       >
-        Xem tại hungniwaco.shop
+        Xem tại hungniwaco.vn
       </a>
     </div>
   );
