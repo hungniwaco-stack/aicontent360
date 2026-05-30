@@ -27,6 +27,7 @@ export interface Tool {
   suitableFor: string[];
   outputs: string[];
   demo: string;
+  productUrl?: string;
   faqs: { question: string; answer: string }[];
 }
 

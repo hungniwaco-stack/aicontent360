@@ -2,17 +2,17 @@
 
 import { trackEvent } from "@/lib/analytics";
 
-export function ToolDetailActions() {
+export function ToolDetailActions({ href }: { href: string }) {
   return (
     <div className="mt-6">
       <a
-        href="https://hungniwaco.vn"
+        href={href}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white"
-        onClick={() => trackEvent("cta_click", { cta_name: "hungniwaco_vn_tool_link", placement: "tool_detail" })}
+        onClick={() => trackEvent("cta_click", { cta_name: "tool_outbound_link", placement: "tool_detail", destination: href })}
       >
-        Xem tại hungniwaco.vn
+        Xem link công cụ
       </a>
     </div>
   );

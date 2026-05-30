@@ -16,6 +16,7 @@ export const tools: Tool[] = [
     suitableFor: ["Creator ngách sức khỏe", "Người mới làm content"],
     outputs: ["Kịch bản video sức khỏe", "Prompt triển khai nhanh"],
     demo: "Link sản phẩm: https://hungniwaco.vn/chatbot-prompt/chatbot-tao-video-suc-khoe",
+    productUrl: "https://hungniwaco.vn/chatbot-prompt/chatbot-tao-video-suc-khoe",
     faqs: [{ question: "Giá hiện tại là bao nhiêu?", answer: "Giá bán tham khảo: 139.000đ." }]
   },
   {
@@ -153,6 +154,7 @@ export const tools: Tool[] = [
     suitableFor: ["Kênh video sức khỏe", "Creator short video"],
     outputs: ["Prompt hình ảnh 3D", "Kịch bản video ngắn"],
     demo: "Link sản phẩm: https://hungniwaco.vn/chatbot-prompt/chatbot-tao-video-suc-khoe-3d-hai-huoc-de-thuong",
+    productUrl: "https://hungniwaco.vn/chatbot-prompt/chatbot-tao-video-suc-khoe-3d-hai-huoc-de-thuong",
     faqs: [{ question: "Giá hiện tại là bao nhiêu?", answer: "Giá bán tham khảo: 139.000đ." }]
   },
   {
@@ -170,6 +172,7 @@ export const tools: Tool[] = [
     suitableFor: ["Kênh mẹ và bé", "Creator giáo dục sức khỏe"],
     outputs: ["Ý tưởng video theo chủ đề", "Kịch bản 30-60 giây"],
     demo: "Link sản phẩm: https://hungniwaco.vn/chatbot-prompt/chatbot-tao-video-suc-khoe-me-va-be",
+    productUrl: "https://hungniwaco.vn/chatbot-prompt/chatbot-tao-video-suc-khoe-me-va-be",
     faqs: [{ question: "Giá hiện tại là bao nhiêu?", answer: "Giá bán tham khảo: 139.000đ." }]
   },
   {
@@ -187,6 +190,7 @@ export const tools: Tool[] = [
     suitableFor: ["Kênh storytelling sức khỏe", "Creator chuyên nội dung nhân vật hóa"],
     outputs: ["Prompt nhân vật hóa", "Kịch bản video theo series"],
     demo: "Link sản phẩm: https://hungniwaco.vn/chatbot-prompt/tro-ly-chatbot-ho-tro-tao-prompt-tao-video-chu-de-suc-khoe-dang-nhan-vat-hoa/",
+    productUrl: "https://hungniwaco.vn/chatbot-prompt/tro-ly-chatbot-ho-tro-tao-prompt-tao-video-chu-de-suc-khoe-dang-nhan-vat-hoa/",
     faqs: [{ question: "Giá hiện tại là bao nhiêu?", answer: "Giá bán tham khảo: 179.000đ." }]
   },
   {
@@ -204,6 +208,7 @@ export const tools: Tool[] = [
     suitableFor: ["Người làm affiliate sức khỏe", "Kênh nội dung bán hàng"],
     outputs: ["Prompt storytelling nội tạng", "Kịch bản có CTA chốt đơn"],
     demo: "Link sản phẩm: https://hungniwaco.vn/chatbot-prompt/tro-ly-chatbot-tao-prompt-suc-khoe-nhan-hoa-noi-dau-phong-dai-thi-giac/",
+    productUrl: "https://hungniwaco.vn/chatbot-prompt/tro-ly-chatbot-tao-prompt-suc-khoe-nhan-hoa-noi-dau-phong-dai-thi-giac/",
     faqs: [{ question: "Giá hiện tại là bao nhiêu?", answer: "Giá bán tham khảo: 99.000đ." }]
   },
   {
@@ -221,6 +226,7 @@ export const tools: Tool[] = [
     suitableFor: ["Kênh kiến thức sức khỏe", "Creator video ngắn"],
     outputs: ["Prompt thị giác hóa", "Ý tưởng hook mạnh"],
     demo: "Link sản phẩm: https://hungniwaco.vn/chatbot-prompt/tro-ly-chatbot-tao-prompt-suc-khoe-nhan-hoa-noi-dau-phong-dai-thi-giac/",
+    productUrl: "https://hungniwaco.vn/chatbot-prompt/tro-ly-chatbot-tao-prompt-suc-khoe-nhan-hoa-noi-dau-phong-dai-thi-giac/",
     faqs: [{ question: "Giá hiện tại là bao nhiêu?", answer: "Giá bán tham khảo: 179.000đ." }]
   },
   {
@@ -238,6 +244,7 @@ export const tools: Tool[] = [
     suitableFor: ["Người mới làm nội dung sức khỏe", "Kênh giáo dục cộng đồng"],
     outputs: ["Template kịch bản", "Prompt miễn phí"],
     demo: "Link sản phẩm: https://hungniwaco.vn/chatbot-prompt/tro-ly-chatbot-tao-prompt-chu-de-suc-khoe-nhan-hoa-tieng-noi-vi-khuan/",
+    productUrl: "https://hungniwaco.vn/chatbot-prompt/tro-ly-chatbot-tao-prompt-chu-de-suc-khoe-nhan-hoa-tieng-noi-vi-khuan/",
     faqs: [{ question: "Có mất phí không?", answer: "Không, công cụ này miễn phí." }]
   },
   {
