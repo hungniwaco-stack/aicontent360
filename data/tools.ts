@@ -187,7 +187,7 @@ export const tools: Tool[] = [
     suitableFor: ["Creator ngắn hạn", "Team nội dung"],
     outputs: ["Danh sách video trend", "Bản phân tích hook"],
     demo: "Đầu ra mẫu: top 20 video trend ngách beauty tuần này.",
-    faqs: [{ question: "Có liên kết đối tác không?", answer: "Có thể truy cập bản đầy đủ tại hungniwaco.shop." }]
+    faqs: [{ question: "Có liên kết đối tác không?", answer: "Có thể truy cập bản đầy đủ tại hungniwaco.vn." }]
   },
   {
     id: "12",
