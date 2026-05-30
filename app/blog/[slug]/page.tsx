@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { blogPosts } from "@/data/blogPosts";
 import { BlogDetail } from "@/data/blogTemplates";
 import { siteConfig } from "@/data/siteConfig";
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!post) {
     return {
-      title: "Bai viet khong ton tai",
+      title: "Bài viết không tồn tại",
       description: siteConfig.description,
       alternates: { canonical: "/blog" }
     };
