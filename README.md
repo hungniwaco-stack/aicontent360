@@ -48,3 +48,13 @@ npm run check
 ## Checklist production
 
 - Xem file [PRODUCTION_CHECKLIST.md](PRODUCTION_CHECKLIST.md)
+
+
+## Analytics tracking (GA4/GTM)
+
+1. Sao chép .env.example thành .env.local.
+2. Điền mã: NEXT_PUBLIC_GTM_ID, NEXT_PUBLIC_GA4_ID.
+3. Restart 
+pm run dev.
+4. Kiểm tra event trong GA4/GTM Preview: cta_click, lead_submit_click, purchase_click.
+
