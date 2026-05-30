@@ -2,7 +2,7 @@
   name: "AI Content Hub",
   description:
     "Nền tảng ứng dụng AI để tạo content, tăng view và kiếm tiền online hiệu quả.",
-  url: "https://aicontenthub.vn",
+  url: "https://aicontent360.shop",
   nav: [
     { href: "/", label: "Trang chủ" },
     { href: "/tao-content-bang-ai", label: "Tạo Content bằng AI" },
