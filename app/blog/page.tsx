@@ -1,6 +1,22 @@
-﻿import { BlogListPage } from "@/data/blogTemplates";
+﻿import { Metadata } from "next";
+import { BlogListPage } from "@/data/blogTemplates";
 import { blogCategories } from "@/data/blogCategories";
 import Link from "next/link";
+import { siteConfig } from "@/data/siteConfig";
+
+export const metadata: Metadata = {
+  title: "Blog AI Content Hub: Hướng dẫn tạo content, tăng view, kiếm tiền bằng AI",
+  description:
+    "Tổng hợp bài viết thực chiến về tạo content bằng AI, tăng view viral, affiliate và workflow ứng dụng AI cho creator.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog AI Content Hub",
+    description:
+      "Tổng hợp bài viết thực chiến về tạo content bằng AI, tăng view viral, affiliate và workflow ứng dụng AI cho creator.",
+    url: `${siteConfig.url}/blog`,
+    type: "website"
+  }
+};
 
 export default function Page() {
   return (

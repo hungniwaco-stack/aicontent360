@@ -1,10 +1,26 @@
-﻿import { HeroSection } from "@/components/HeroSection";
+﻿import { Metadata } from "next";
+import { HeroSection } from "@/components/HeroSection";
 import { CategoryCard } from "@/components/CategoryCard";
 import { ToolCard } from "@/components/ToolCard";
 import { BlogCard } from "@/components/BlogCard";
 import { CTASection } from "@/components/CTASection";
 import { tools } from "@/data/tools";
 import { blogPosts } from "@/data/blogPosts";
+import { siteConfig } from "@/data/siteConfig";
+
+export const metadata: Metadata = {
+  title: "Ứng dụng AI để tạo content, tăng view và kiếm tiền online",
+  description:
+    "Khám phá hệ sinh thái công cụ AI thực chiến giúp bạn tìm ý tưởng viral, viết kịch bản, xây kênh nội dung và triển khai affiliate hiệu quả hơn.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Ứng dụng AI để tạo content, tăng view và kiếm tiền online",
+    description:
+      "Khám phá hệ sinh thái công cụ AI thực chiến giúp bạn tìm ý tưởng viral, viết kịch bản, xây kênh nội dung và triển khai affiliate hiệu quả hơn.",
+    url: siteConfig.url,
+    type: "website"
+  }
+};
 
 export default function HomePage() {
   return (
