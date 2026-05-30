@@ -39,9 +39,10 @@ export default function HomePage() {
         <section><h2 className="mb-4 text-2xl font-bold">Quy trình ứng dụng AI</h2><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{["Tìm ý tưởng","Tạo kịch bản","Sản xuất nội dung","Đăng và tối ưu"].map((s)=> <div key={s} className="rounded-2xl border border-slate-200 bg-white p-5 font-semibold">{s}</div>)}</div></section>
         <section><h2 className="mb-4 text-2xl font-bold">Bài viết mới nhất</h2><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{blogPosts.slice(0, 6).map((p) => <BlogCard key={p.id} post={p} />)}</div></section>
         <section><h2 className="mb-4 text-2xl font-bold">Tài nguyên miễn phí</h2><p className="text-slate-600">Prompt, workflow, chatbot và checklist miễn phí để bạn bắt đầu nhanh.</p></section>
-        <section><h2 className="mb-4 text-2xl font-bold">Case Study nổi bật</h2><p className="text-slate-600">Từ 0 đến 100.000 view bằng AI, xây kênh kể chuyện, và affiliate video ngắn.</p></section>
+        <section><h2 className="mb-4 text-2xl font-bold">Case Study nổi bật</h2><p className="text-slate-600">Từ 0 đến 100.000 view bằng AI, xây kênh kể chuyện, và affiliate video ngắn.</p></section><section className="grid gap-4 lg:grid-cols-3"><div className="rounded-2xl border border-slate-200 bg-white p-5"><h3 className="font-semibold">Cam kết thực chiến</h3><p className="mt-2 text-sm text-slate-600">Nội dung hướng dẫn theo workflow rõ ràng, dễ triển khai cho người mới lẫn team nội dung.</p></div><div className="rounded-2xl border border-slate-200 bg-white p-5"><h3 className="font-semibold">Cập nhật liên tục</h3><p className="mt-2 text-sm text-slate-600">Công cụ và bài viết được cập nhật theo xu hướng AI, ưu tiên ứng dụng tạo kết quả thực tế.</p></div><div className="rounded-2xl border border-slate-200 bg-white p-5"><h3 className="font-semibold">Đo lường minh bạch</h3><p className="mt-2 text-sm text-slate-600">Ưu tiên chỉ số quan trọng: retention, CTR, lead và chuyển đổi để tối ưu tăng trưởng bền vững.</p></div></section>
         <CTASection />
       </div>
     </div>
   );
 }
+
