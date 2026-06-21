@@ -72,7 +72,6 @@ export default function Page() {
         <p className="mt-2 text-slate-200">Bắt đầu với công cụ phù hợp để giảm thử-sai và tăng tốc kết quả trong 30 ngày đầu.</p>
         <div className="mt-4 flex flex-wrap gap-3">
           <Link href="/cong-cu-ai" className="rounded-xl bg-white px-4 py-3 text-sm font-semibold text-brand-900">Khám phá công cụ AI</Link>
-          <Link href="/lien-he" className="rounded-xl border border-white px-4 py-3 text-sm font-semibold">Nhận tư vấn công cụ phù hợp</Link>
         </div>
       </section>
 

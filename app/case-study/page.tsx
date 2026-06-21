@@ -1,49 +1,81 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Case Study AI Content Hub: Kết quả thực chiến tăng view và doanh thu",
+  title: "Case Study AI Content Hub: Nhật ký thực chiến trung thực",
   description:
-    "Các case study thực tế về tăng view, xây kênh và kiếm tiền bằng AI với chỉ số đo lường rõ ràng và bài học triển khai.",
+    "Những thí nghiệm thật đang diễn ra khi dùng AI làm content — chia sẻ trung thực cách làm và quan sát, không số liệu thổi phồng.",
   alternates: { canonical: "/case-study" },
   openGraph: {
     title: "Case Study AI Content Hub",
     description:
-      "Các case study thực tế về tăng view, xây kênh và kiếm tiền bằng AI với chỉ số đo lường rõ ràng và bài học triển khai.",
+      "Những thí nghiệm thật đang diễn ra khi dùng AI làm content — chia sẻ trung thực cách làm và quan sát, không số liệu thổi phồng.",
     url: `${siteConfig.url}/case-study`,
     type: "website"
   }
 };
 
-const cases = [
+type Experiment = {
+  title: string;
+  status: string;
+  tool: { label: string; href: string } | null;
+  summary: string;
+  observations: string[];
+  lesson: string;
+  link?: { label: string; href: string };
+};
+
+const experiments: Experiment[] = [
   {
-    title: "Từ 0 đến 100.000 view bằng AI",
-    timeline: "30 ngày",
-    metrics: ["100.000+ views", "3.2x tỷ lệ giữ chân 3 giây", "2.1x số video đạt trên 10k view"],
-    summary: "Chuẩn hóa quy trình tìm trend và test 3 biến thể hook/video giúp tăng tốc độ ra nội dung lẫn chất lượng retention.",
-    lesson: "Kết quả đến từ nhịp test nhanh và vòng lặp tối ưu mỗi tuần, không phải từ một video may mắn."
+    title: "Thí nghiệm #1: Dùng HSHOP để tìm ngách trước khi sản xuất",
+    status: "Đang chạy",
+    tool: { label: "HSHOP YouTube Analytics", href: "https://hungniwaco.shop" },
+    summary:
+      "Trước mỗi đợt content, mình dùng HSHOP để xem chủ đề con nào đang tăng trưởng mà chưa bão hoà, loại bớt chủ đề đã đỏ lửa, rồi mới viết kịch bản.",
+    observations: [
+      "Tiết kiệm thời gian rõ rệt — không còn mở từng kênh ước lượng view bằng tay.",
+      "Tránh được những tuần đổ công vào sai chủ đề.",
+      "Chưa khẳng định được tác động cuối lên doanh thu (vẫn đang dùng để định hướng)."
+    ],
+    lesson:
+      "Chọn đúng chủ đề từ đầu quan trọng không kém việc làm nội dung hay. Định hướng trước, sản xuất sau.",
+    link: { label: "Đọc nhật ký đầy đủ về HSHOP", href: "https://hungniwaco.shop" }
   },
   {
-    title: "Cách làm kênh kể chuyện bằng AI",
-    timeline: "45 ngày",
-    metrics: ["Tăng 4.5x watch time", "Series 12 tập liên tục", "CTR thumbnail tăng 38%"],
-    summary: "Ứng dụng AI vào dàn ý kể chuyện, điểm cao trào và CTA cuối video để giữ người xem quay lại chuỗi nội dung.",
-    lesson: "Storytelling mạnh cần cấu trúc cảm xúc nhất quán, không chỉ nội dung giật gân."
+    title: "Thí nghiệm #2: Quy trình sản xuất content đều đặn không cạn ý",
+    status: "Đang áp dụng",
+    tool: { label: "Chatbot AI tạo content", href: "https://hungniwaco.vn" },
+    summary:
+      "Định hướng chủ đề trước bằng dữ liệu, lên ý tưởng theo ma trận, rồi dùng chatbot ngách ra kịch bản nháp, cuối cùng tự thêm chất riêng.",
+    observations: [
+      "Từ khi có quy trình, mình đăng đều hơn hẳn so với lúc làm theo hứng.",
+      "Tính đều đặn là tiền đề bắt buộc của mọi kết quả về sau.",
+      "Chưa gọi đây là 'thành công' — mới là bước đi đúng hướng."
+    ],
+    lesson:
+      "Người làm content một mình thua không phải vì thiếu nỗ lực, mà vì thiếu quy trình.",
+    link: {
+      label: "Xem quy trình chi tiết",
+      href: "/blog/quy-trinh-tao-content-tu-y-tuong-den-dang-video"
+    }
   },
   {
-    title: "Cách làm affiliate sức khỏe bằng video ngắn",
-    timeline: "60 ngày",
-    metrics: ["Tăng 2.8x lead đủ điều kiện", "Giảm 31% chi phí test nội dung", "Tăng tỷ lệ chuyển đổi từ inbox"],
-    summary: "Tập trung vào pain point rõ ràng, script ngắn theo hành trình người mua và CTA mềm theo từng nhóm khách hàng.",
-    lesson: "Không chạy theo view đơn thuần, cần cân bằng giữa reach và tín hiệu chuyển đổi."
-  },
-  {
-    title: "Cách dùng công cụ viral để tìm ý tưởng video",
-    timeline: "14 ngày",
-    metrics: ["Rút 70% thời gian nghiên cứu", "30 ý tưởng mới mỗi ngày", "Tăng tốc độ xuất bản 2x"],
-    summary: "Dùng công cụ lọc trend theo ngách giúp đội nội dung ra quyết định nhanh và giảm tình trạng bí ý tưởng.",
-    lesson: "Ý tưởng nhiều chỉ có giá trị khi có quy trình ưu tiên và triển khai đúng lịch."
+    title: "Thí nghiệm #3: Làm affiliate theo hướng cho giá trị trước",
+    status: "Đang thử",
+    tool: null,
+    summary:
+      "Thử cách làm affiliate bền vững thay vì bán gấp: phần lớn nội dung giải quyết vấn đề thật, chỉ một phần nhỏ nhắc sản phẩm, luôn minh bạch link affiliate.",
+    observations: [
+      "Chưa có con số doanh thu để khoe ở mục này.",
+      "Chia sẻ cách tiếp cận vì tin nó đúng hướng về niềm tin.",
+      "Sẽ cập nhật khi có dữ liệu thật."
+    ],
+    lesson: "Cho giá trị trước, bán sau. Niềm tin cần thời gian tích luỹ.",
+    link: {
+      label: "Xem cách tiếp cận affiliate",
+      href: "/blog/cach-lam-affiliate-suc-khoe-bang-video-ngan"
+    }
   }
 ];
 
@@ -51,37 +83,84 @@ export default function Page() {
   return (
     <div className="container-shell space-y-8 py-12">
       <section>
-        <h1 className="text-3xl font-bold">Case Study</h1>
+        <h1 className="text-3xl font-bold">Case Study — Nhật ký thực chiến</h1>
         <p className="mt-3 text-slate-700">
-          Dưới đây là các tình huống triển khai thực tế, có chỉ số đo lường rõ ràng để bạn tham khảo khi xây hệ thống content và kiếm tiền bằng AI.
+          Hầu hết trang &quot;case study&quot; cho bạn xem những con số đẹp. Trang này thì khác. Mình không trưng thành tích
+          vì vẫn đang trên đường — thứ chia sẻ ở đây là những thí nghiệm thật đang chạy: dùng công cụ gì, làm thế nào,
+          quan sát được gì, cả những chỗ chưa hiệu quả. Khi có kết quả rõ ràng, mình cập nhật bằng số thật.
         </p>
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
-        {cases.map((item) => (
+        {experiments.map((item) => (
           <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-6">
             <h2 className="text-xl font-bold">{item.title}</h2>
-            <p className="mt-1 text-sm text-brand-700">Timeline: {item.timeline}</p>
+            <p className="mt-1 text-sm text-brand-700">
+              Trạng thái: {item.status}
+              {item.tool ? (
+                <>
+                  {" · "}
+                  <a href={item.tool.href} className="underline" target="_blank" rel="noopener noreferrer">
+                    {item.tool.label}
+                  </a>
+                </>
+              ) : null}
+            </p>
             <p className="mt-3 text-slate-700">{item.summary}</p>
-            <h3 className="mt-4 font-semibold">Kết quả chính</h3>
+            <h3 className="mt-4 font-semibold">Điều mình quan sát được</h3>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-700">
-              {item.metrics.map((m) => (
+              {item.observations.map((m) => (
                 <li key={m}>{m}</li>
               ))}
             </ul>
             <p className="mt-4 rounded-xl bg-slate-100 p-3 text-sm text-slate-700">
               <span className="font-semibold">Bài học:</span> {item.lesson}
             </p>
+            {item.link ? (
+              <p className="mt-3 text-sm">
+                <Link href={item.link.href} className="font-semibold text-brand-700">
+                  {item.link.label} →
+                </Link>
+              </p>
+            ) : null}
           </article>
         ))}
       </section>
 
+      <section className="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 className="text-2xl font-bold">Vì sao trang này không có &quot;số liệu khủng&quot;?</h2>
+        <p className="mt-3 text-slate-700">Vì mình không muốn bịa.</p>
+        <p className="mt-3 text-slate-700">
+          Rất dễ viết &quot;100.000 view trong 30 ngày&quot; để trang trông ấn tượng. Nhưng nếu bạn tin rồi làm theo mà
+          không ra kết quả như vậy, mình đã lừa bạn — và tự phá uy tín của chính mình. Mình chọn cách khó hơn: ghi lại
+          thật những gì đang diễn ra, kể cả khi còn dang dở. Khi mình đạt cột mốc thật, bạn sẽ là người đầu tiên thấy con
+          số — và nó sẽ là con số thật.
+        </p>
+      </section>
+
       <section className="rounded-2xl bg-brand-900 p-6 text-white">
-        <h2 className="text-2xl font-bold">Bạn muốn áp dụng mô hình nào trước?</h2>
-        <p className="mt-2 text-slate-200">Chọn công cụ phù hợp theo mục tiêu hiện tại để triển khai nhanh và đo hiệu quả theo tuần.</p>
+        <h2 className="text-2xl font-bold">Bạn muốn bắt đầu từ đâu?</h2>
+        <p className="mt-2 text-slate-200">
+          Hay đổ công vào chủ đề rồi nhận view thấp? Vấn đề thường ở khâu chọn chủ đề. Kẹt ở viết kịch bản? Thử công cụ
+          viết theo ngách.
+        </p>
         <div className="mt-4 flex flex-wrap gap-3">
-          <Link href="/cong-cu-ai" className="rounded-xl bg-white px-4 py-3 text-sm font-semibold text-brand-900">Khám phá công cụ AI</Link>
-          <Link href="/lien-he" className="rounded-xl border border-white px-4 py-3 text-sm font-semibold">Nhận tư vấn công cụ phù hợp</Link>
+          <a
+            href="https://hungniwaco.shop"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl bg-white px-4 py-3 text-sm font-semibold text-brand-900"
+          >
+            Thử HSHOP tìm ngách
+          </a>
+          <a
+            href="https://hungniwaco.vn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl border border-white px-4 py-3 text-sm font-semibold text-white"
+          >
+            Xem Chatbot tạo content
+          </a>
         </div>
       </section>
     </div>

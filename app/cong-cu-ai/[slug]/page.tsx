@@ -1,19 +1,18 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { tools } from "@/data/tools";
 import { siteConfig } from "@/data/siteConfig";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { FAQSection } from "@/components/FAQSection";
-import { RelatedTools } from "@/components/RelatedTools";
 import { ToolDetailActions } from "@/components/ToolDetailActions";
 
 export function generateStaticParams() {
-  return tools.map((t) => ({ slug: t.slug }));
+  return tools.map((tool) => ({ slug: tool.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const tool = tools.find((t) => t.slug === slug);
+  const tool = tools.find((item) => item.slug === slug);
 
   if (!tool) {
     return {
@@ -39,9 +38,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ToolDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const tool = tools.find((t) => t.slug === slug);
+  const tool = tools.find((item) => item.slug === slug);
   if (!tool) return notFound();
+
   const outboundUrl = tool.productUrl || "https://hungniwaco.vn";
+  const isViralScanner = tool.slug === "cong-cu-tim-video-viral";
   const toolSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -62,9 +63,83 @@ export default async function ToolDetailPage({ params }: { params: Promise<{ slu
     <div className="container-shell space-y-8 py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }} />
       <Breadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Công cụ AI", href: "/cong-cu-ai" }, { label: tool.name }]} />
-      <section className="rounded-2xl border border-slate-200 bg-white p-6"><h1 className="text-3xl font-bold">{tool.name}</h1><p className="mt-3 text-slate-600">{tool.shortDescription}</p><h2 className="mt-6 text-xl font-semibold">Công cụ này giúp gì?</h2><p className="mt-2">{tool.longDescription}</p><h3 className="mt-6 text-lg font-semibold">Ai nên dùng?</h3><ul className="list-disc pl-5">{tool.suitableFor.map((i)=> <li key={i}>{i}</li>)}</ul><h3 className="mt-6 text-lg font-semibold">Kết quả nhận được</h3><ul className="list-disc pl-5">{tool.outputs.map((o)=> <li key={o}>{o}</li>)}</ul><h3 className="mt-6 text-lg font-semibold">Demo đầu ra</h3><p>{tool.demo}</p><ToolDetailActions href={outboundUrl} /></section>
-      <FAQSection faqs={tool.faqs} />
-      <RelatedTools currentSlug={tool.slug} />
+
+      <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-normal text-brand-700">
+              {tool.category}
+            </span>
+            {tool.isNew ? (
+              <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                Mới cập nhật
+              </span>
+            ) : null}
+          </div>
+
+          <h1 className="mt-4 max-w-4xl text-3xl font-bold leading-tight text-brand-900 md:text-4xl">{tool.name}</h1>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">{tool.shortDescription}</p>
+
+          {!isViralScanner ? (
+            <div className="mt-6 flex flex-wrap gap-2">
+              {tool.goal.map((goal) => (
+                <span key={goal} className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
+                  {goal}
+                </span>
+              ))}
+              {tool.platform.map((platform) => (
+                <span key={platform} className="rounded-full bg-white px-3 py-1 text-sm font-medium text-slate-700 ring-1 ring-slate-200">
+                  {platform}
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </div>
+
+        <ToolDetailActions href={outboundUrl} tool={tool} />
+      </section>
+
+      {!isViralScanner ? (
+        <>
+          <section className="grid gap-4 lg:grid-cols-3">
+            <article className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm lg:col-span-3">
+              <p className="text-sm font-semibold uppercase tracking-normal text-brand-700">Công cụ này giúp gì?</p>
+              <p className="mt-3 text-base leading-7 text-slate-700">{tool.longDescription}</p>
+            </article>
+
+            <article className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h2 className="text-lg font-bold text-brand-900">Ai nên dùng?</h2>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-700">
+                {tool.suitableFor.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-emerald-600" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h2 className="text-lg font-bold text-brand-900">Kết quả nhận được</h2>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-700">
+                {tool.outputs.map((output) => (
+                  <li key={output} className="flex gap-3">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-700" />
+                    <span>{output}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="rounded-xl border border-amber-200 bg-amber-50 p-5 shadow-sm">
+              <h2 className="text-lg font-bold text-brand-900">Demo đầu ra</h2>
+              <p className="mt-4 text-sm leading-6 text-slate-700">{tool.demo}</p>
+            </article>
+          </section>
+
+          <FAQSection faqs={tool.faqs} />
+        </>
+      ) : null}
     </div>
   );
 }

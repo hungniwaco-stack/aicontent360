@@ -1,5 +1,6 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
+import { ReactNode } from "react";
 import { blogPosts } from "@/data/blogPosts";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -16,13 +17,121 @@ export function BlogListPage() {
   return <div className="container-shell py-12"><h1 className="text-3xl font-bold">Blog AI Content Hub</h1><div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{blogPosts.map((post)=><BlogCard key={post.id} post={post} />)}</div></div>;
 }
 
-const sections = [
-  { id: "giai-phap", title: "Giải pháp nhanh" },
-  { id: "quy-trinh", title: "Quy trình thực chiến" },
-  { id: "luu-y", title: "Lưu ý khi triển khai" },
-  { id: "cta", title: "Công cụ đề xuất" },
-  { id: "faq", title: "FAQ" }
-];
+function slugifyHeading(input: string): string {
+  return input
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function renderInline(text: string, keyBase: string): ReactNode[] {
+  const nodes: ReactNode[] = [];
+  const regex = /(\*\*([^*]+)\*\*)|(\*([^*]+)\*)|(\[([^\]]+)\]\(([^)]+)\))/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let i = 0;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index));
+    if (match[1]) {
+      nodes.push(<strong key={`${keyBase}-b${i}`}>{match[2]}</strong>);
+    } else if (match[3]) {
+      nodes.push(<em key={`${keyBase}-i${i}`}>{match[4]}</em>);
+    } else if (match[5]) {
+      const label = match[6];
+      const url = match[7];
+      if (/^https?:\/\//.test(url)) {
+        nodes.push(
+          <a key={`${keyBase}-a${i}`} href={url} target="_blank" rel="noopener noreferrer" className="font-medium text-brand-700 underline">
+            {label}
+          </a>
+        );
+      } else {
+        nodes.push(
+          <Link key={`${keyBase}-l${i}`} href={url} className="font-medium text-brand-700 underline">
+            {label}
+          </Link>
+        );
+      }
+    }
+    lastIndex = regex.lastIndex;
+    i += 1;
+  }
+  if (lastIndex < text.length) nodes.push(text.slice(lastIndex));
+  return nodes;
+}
+
+function buildArticle(content: string[]): { blocks: ReactNode[]; toc: { id: string; title: string }[] } {
+  const lines = content.join("\n").split("\n");
+  const blocks: ReactNode[] = [];
+  const toc: { id: string; title: string }[] = [];
+  let list: string[] = [];
+  let key = 0;
+
+  const flushList = () => {
+    if (list.length) {
+      const current = list;
+      const k = key++;
+      blocks.push(
+        <ul key={`ul-${k}`} className="mt-3 list-disc space-y-1 pl-5 text-slate-700">
+          {current.map((item, idx) => (
+            <li key={`li-${k}-${idx}`}>{renderInline(item, `li-${k}-${idx}`)}</li>
+          ))}
+        </ul>
+      );
+      list = [];
+    }
+  };
+
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (!line) {
+      flushList();
+      continue;
+    }
+    if (line.startsWith("### ")) {
+      flushList();
+      const t = line.slice(4);
+      blocks.push(
+        <h3 key={`h3-${key++}`} className="mt-6 text-lg font-semibold text-slate-900">
+          {renderInline(t, `h3-${key}`)}
+        </h3>
+      );
+    } else if (line.startsWith("## ")) {
+      flushList();
+      const t = line.slice(3);
+      const id = slugifyHeading(t);
+      toc.push({ id, title: t });
+      blocks.push(
+        <h2 id={id} key={`h2-${key++}`} className="mt-8 text-2xl font-bold">
+          {renderInline(t, `h2-${key}`)}
+        </h2>
+      );
+    } else if (line.startsWith("> ")) {
+      flushList();
+      const t = line.slice(2);
+      blocks.push(
+        <blockquote key={`bq-${key++}`} className="mt-4 rounded-xl border-l-4 border-brand-300 bg-slate-50 p-4 text-slate-700">
+          {renderInline(t, `bq-${key}`)}
+        </blockquote>
+      );
+    } else if (line.startsWith("- ")) {
+      list.push(line.slice(2));
+    } else {
+      flushList();
+      blocks.push(
+        <p key={`p-${key++}`} className="mt-3 text-slate-700">
+          {renderInline(line, `p-${key}`)}
+        </p>
+      );
+    }
+  }
+  flushList();
+  return { blocks, toc };
+}
 
 function pickToolsByCategory(category: string) {
   if (category.includes("Tăng view")) return tools.filter((t) => t.goal.includes("Tăng view")).slice(0, 3);
@@ -34,6 +143,8 @@ export function BlogDetail({ slug }: { slug: string }) {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return notFound();
   const relatedTools = pickToolsByCategory(post.category);
+  const { blocks, toc } = buildArticle(post.content);
+  const sections = [...toc, { id: "cong-cu", title: "Công cụ đề xuất" }, { id: "faq", title: "FAQ" }];
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -41,14 +152,8 @@ export function BlogDetail({ slug }: { slug: string }) {
     description: post.excerpt,
     datePublished: post.date,
     dateModified: post.date,
-    author: {
-      "@type": "Organization",
-      name: post.author
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "AI Content Hub"
-    },
+    author: { "@type": "Organization", name: post.author },
+    publisher: { "@type": "Organization", name: "AI Content Hub" },
     mainEntityOfPage: `https://aicontent360.shop/blog/${post.slug}`
   };
 
@@ -59,24 +164,14 @@ export function BlogDetail({ slug }: { slug: string }) {
       <article className="grid gap-6 lg:grid-cols-[1fr_300px]">
         <div className="rounded-2xl border border-slate-200 bg-white p-6">
           <h1 className="text-3xl font-bold">{post.title}</h1>
-          <p className="mt-4 text-slate-700">{post.excerpt}</p>
+          <p className="mt-4 text-lg text-slate-600">{post.excerpt}</p>
 
-          <h2 id="giai-phap" className="mt-8 text-2xl font-bold">Giải pháp nhanh</h2>
-          <p className="mt-3 text-slate-700">{post.content[0] ?? "Áp dụng AI đúng workflow giúp bạn tăng tốc sản xuất nội dung và tối ưu hiệu quả kiếm tiền online."}</p>
+          {blocks}
 
-          <h2 id="quy-trinh" className="mt-8 text-2xl font-bold">Quy trình thực chiến</h2>
-          <h3 className="mt-4 text-lg font-semibold">Bước 1: Xác định mục tiêu rõ ràng</h3>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-700"><li>Xác định mục tiêu chính: tăng view, tăng chuyển đổi hoặc tăng tốc sản xuất.</li><li>Chọn 1 nền tảng ưu tiên để tránh phân tán nguồn lực.</li></ul>
-          <h3 className="mt-4 text-lg font-semibold">Bước 2: Tạo và tối ưu nội dung với AI</h3>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-700"><li>Dùng prompt có cấu trúc để tạo hook, kịch bản và CTA.</li><li>Kiểm tra 3 biến thể để chọn phiên bản có tỷ lệ giữ chân tốt hơn.</li></ul>
-
-          <h2 id="luu-y" className="mt-8 text-2xl font-bold">Lưu ý khi triển khai</h2>
-          <ul className="mt-3 list-disc space-y-1 pl-5 text-slate-700"><li>Không sao chép trend nguyên bản, luôn biến tấu theo giọng thương hiệu.</li><li>Đo hiệu quả theo tuần để điều chỉnh hướng nội dung kịp thời.</li><li>Kết hợp AI với kiểm chứng thủ công để giữ độ tin cậy.</li></ul>
-
-          <h2 id="cta" className="mt-8 text-2xl font-bold">Công cụ đề xuất</h2>
+          <h2 id="cong-cu" className="mt-10 text-2xl font-bold">Công cụ đề xuất</h2>
           <p className="mt-3 text-slate-700">Chọn công cụ phù hợp để triển khai ngay hôm nay:</p>
           <div className="mt-4 grid gap-4 md:grid-cols-2">{relatedTools.map((tool) => <ToolCard key={tool.id} tool={tool} />)}</div>
-          <div className="mt-5 flex flex-wrap gap-3"><Link href="/cong-cu-ai" className="rounded-xl bg-brand-700 px-4 py-2 text-sm font-semibold text-white">Khám phá công cụ AI</Link><Link href="/lien-he" className="rounded-xl border border-brand-700 px-4 py-2 text-sm font-semibold text-brand-700">Nhắn Zalo tư vấn</Link></div>
+          <div className="mt-5 flex flex-wrap gap-3"><Link href="/cong-cu-ai" className="rounded-xl bg-brand-700 px-4 py-2 text-sm font-semibold text-white">Khám phá công cụ AI</Link></div>
         </div>
         <TableOfContents items={sections} />
       </article>
@@ -85,4 +180,3 @@ export function BlogDetail({ slug }: { slug: string }) {
     </div>
   );
 }
-
