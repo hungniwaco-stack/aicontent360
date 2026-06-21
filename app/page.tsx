@@ -1,4 +1,5 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
+import Link from "next/link";
 import { HeroSection } from "@/components/HeroSection";
 import { CategoryCard } from "@/components/CategoryCard";
 import { ToolCard } from "@/components/ToolCard";
@@ -22,27 +23,81 @@ export const metadata: Metadata = {
   }
 };
 
+const featuredTools = [...tools]
+  .filter((tool) => tool.slug !== "cong-cu-tim-video-viral")
+  .sort((a, b) => Number(b.isFeatured) - Number(a.isFeatured))
+  .slice(0, 8);
+
 export default function HomePage() {
   return (
     <div>
       <HeroSection />
-      <div className="container-shell space-y-14 py-12">
+      <div className="container-shell space-y-12 py-10 sm:py-12">
         <section>
-          <h2 className="mb-4 text-2xl font-bold">Bạn muốn AI giúp gì?</h2>
-          <div className="grid gap-4 sm:grid-cols-3">
-            <CategoryCard title="Tạo Content" href="/tao-content-bang-ai" />
-            <CategoryCard title="Tăng View" href="/tang-view-viral" />
-            <CategoryCard title="Kiếm Tiền" href="/kiem-tien-bang-ai" />
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-emerald-700">Chọn theo việc cần làm</p>
+              <h2 className="mt-2 text-2xl font-bold text-brand-900">Lối tắt đến đúng nhóm công cụ</h2>
+            </div>
+          </div>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <CategoryCard title="Tạo content" href="/cong-cu-ai?goal=T%E1%BA%A1o+content" description="Ý tưởng, hook, kịch bản và workflow sản xuất nội dung đều đặn." />
+            <CategoryCard title="Tăng view" href="/cong-cu-ai?goal=T%C4%83ng+view" description="Tìm format viral, phân tích đối thủ và tối ưu video ngắn." />
+            <CategoryCard title="Kiếm tiền" href="/cong-cu-ai?goal=Ki%E1%BA%BFm+ti%E1%BB%81n" description="Bộ công cụ hỗ trợ affiliate, UGC và góc bán hàng chuyển đổi." />
+            <CategoryCard title="Sức khỏe" href="/cong-cu-ai?goal=S%E1%BB%A9c+kh%E1%BB%8Fe" description="Prompt và chatbot cho nội dung sức khỏe, làm đẹp, mẹ và bé." />
           </div>
         </section>
-        <section><h2 className="mb-4 text-2xl font-bold">Công cụ AI nổi bật</h2><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{tools.slice(0, 8).map((t) => <ToolCard key={t.id} tool={t} />)}</div></section>
-        <section><h2 className="mb-4 text-2xl font-bold">Quy trình ứng dụng AI</h2><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{["Tìm ý tưởng","Tạo kịch bản","Sản xuất nội dung","Đăng và tối ưu"].map((s)=> <div key={s} className="rounded-2xl border border-slate-200 bg-white p-5 font-semibold">{s}</div>)}</div></section>
-        <section><h2 className="mb-4 text-2xl font-bold">Bài viết mới nhất</h2><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{blogPosts.slice(0, 6).map((p) => <BlogCard key={p.id} post={p} />)}</div></section>
-        <section><h2 className="mb-4 text-2xl font-bold">Tài nguyên miễn phí</h2><p className="text-slate-600">Prompt, workflow, chatbot và checklist miễn phí để bạn bắt đầu nhanh.</p></section>
-        <section><h2 className="mb-4 text-2xl font-bold">Case Study nổi bật</h2><p className="text-slate-600">Từ 0 đến 100.000 view bằng AI, xây kênh kể chuyện, và affiliate video ngắn.</p></section><section className="grid gap-4 lg:grid-cols-3"><div className="rounded-2xl border border-slate-200 bg-white p-5"><h3 className="font-semibold">Cam kết thực chiến</h3><p className="mt-2 text-sm text-slate-600">Nội dung hướng dẫn theo workflow rõ ràng, dễ triển khai cho người mới lẫn team nội dung.</p></div><div className="rounded-2xl border border-slate-200 bg-white p-5"><h3 className="font-semibold">Cập nhật liên tục</h3><p className="mt-2 text-sm text-slate-600">Công cụ và bài viết được cập nhật theo xu hướng AI, ưu tiên ứng dụng tạo kết quả thực tế.</p></div><div className="rounded-2xl border border-slate-200 bg-white p-5"><h3 className="font-semibold">Đo lường minh bạch</h3><p className="mt-2 text-sm text-slate-600">Ưu tiên chỉ số quan trọng: retention, CTR, lead và chuyển đổi để tối ưu tăng trưởng bền vững.</p></div></section>
+
+        <section>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-emerald-700">{tools.length} công cụ đang có trong catalog</p>
+              <h2 className="mt-2 text-2xl font-bold text-brand-900">Công cụ AI nổi bật</h2>
+            </div>
+            <Link href="/cong-cu-ai" className="text-sm font-semibold text-brand-700 hover:text-brand-900">Xem toàn bộ thư viện</Link>
+          </div>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {featuredTools.map((tool) => (
+              <ToolCard key={tool.id} tool={tool} />
+            ))}
+          </div>
+        </section>
+
+        <section className="grid gap-4 lg:grid-cols-3">
+          <div className="rounded-lg border border-slate-200 bg-white p-5">
+            <p className="text-3xl font-bold text-brand-900">{tools.filter((tool) => tool.isFeatured).length}</p>
+            <h3 className="mt-3 font-semibold text-brand-900">Công cụ ưu tiên triển khai</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Danh sách nổi bật tập trung vào công cụ có đầu ra rõ, dễ dùng cho creator mới bắt đầu.</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-5">
+            <p className="text-3xl font-bold text-emerald-700">5</p>
+            <h3 className="mt-3 font-semibold text-brand-900">Nền tảng nội dung</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">TikTok, YouTube, Facebook, Website và Affiliate được gắn tag để lọc nhanh theo kênh làm việc.</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-5">
+            <p className="text-3xl font-bold text-amber-600">{blogPosts.length}</p>
+            <h3 className="mt-3 font-semibold text-brand-900">Bài hướng dẫn thực chiến</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-600">Nội dung giáo dục đi cùng catalog để người dùng biết chọn tool và áp dụng vào workflow thật.</p>
+          </div>
+        </section>
+
+        <section>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-emerald-700">Học để dùng đúng</p>
+              <h2 className="mt-2 text-2xl font-bold text-brand-900">Bài viết mới nhất</h2>
+            </div>
+            <Link href="/blog" className="text-sm font-semibold text-brand-700 hover:text-brand-900">Xem blog</Link>
+          </div>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {blogPosts.slice(0, 6).map((post) => (
+              <BlogCard key={post.id} post={post} />
+            ))}
+          </div>
+        </section>
+
         <CTASection />
       </div>
     </div>
   );
 }
-

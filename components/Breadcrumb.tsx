@@ -1,5 +1,7 @@
 ﻿import Link from "next/link";
 
+import { siteConfig } from "@/data/siteConfig";
+
 export function Breadcrumb({ items }: { items: { label: string; href?: string }[] }) {
   const schema = {
     "@context": "https://schema.org",
@@ -8,7 +10,7 @@ export function Breadcrumb({ items }: { items: { label: string; href?: string }[
       "@type": "ListItem",
       position: index + 1,
       name: item.label,
-      item: item.href ? `https://example.com${item.href}` : undefined
+      item: item.href ? `${siteConfig.url}${item.href}` : undefined
     }))
   };
 
