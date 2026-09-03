@@ -64,7 +64,7 @@ export const tools: Tool[] = [
     category: "Kiếm Tiền & Affiliate",
     goal: ["Kiếm tiền", "Affiliate", "Tăng view"],
     platform: ["TikTok", "YouTube"],
-    price: "100K-300K",
+    price: "Dưới 100K",
     isFree: false,
     isFeatured: false,
     shortDescription: "Tạo concept video mỹ phẩm dễ viral và chốt đơn.",
@@ -99,7 +99,7 @@ export const tools: Tool[] = [
     category: "Kể Chuyện & Kinh Dị",
     goal: ["Storytelling", "Tăng view"],
     platform: ["YouTube", "Facebook"],
-    price: "Dưới 100K",
+    price: "Trên 300K",
     isFree: false,
     isFeatured: false,
     shortDescription: "Tạo kịch bản review phim kinh dị theo mô-típ viral.",
@@ -242,7 +242,7 @@ export const tools: Tool[] = [
     category: "Sức Khỏe & Làm Đẹp",
     goal: ["Sức khỏe", "Affiliate"],
     platform: ["TikTok", "YouTube", "Affiliate"],
-    price: "Dưới 100K",
+    price: "100K-300K",
     isFree: false,
     isFeatured: false,
     shortDescription: "Prompt video nội tạng lên tiếng, tối ưu chèn sản phẩm affiliate cuối video.",
@@ -251,7 +251,7 @@ export const tools: Tool[] = [
     outputs: ["Prompt storytelling nội tạng", "Kịch bản có CTA chốt đơn"],
     demo: "Demo đầu ra: concept video phóng đại thị giác để nhấn mạnh vấn đề sức khỏe.",
     productUrl: "https://hungniwaco.vn/chatbot-prompt/tro-ly-chatbot-tao-prompt-suc-khoe-nhan-hoa-noi-dau-phong-dai-thi-giac/",
-    faqs: [{ question: "Giá hiện tại là bao nhiêu?", answer: "Giá bán tham khảo: 99.000đ." }]
+    faqs: [{ question: "Giá hiện tại là bao nhiêu?", answer: "Giá bán tham khảo: 179.000đ." }]
   },
   {
     id: "16",
