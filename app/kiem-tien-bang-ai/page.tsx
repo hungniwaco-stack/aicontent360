@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     description:
       "Lộ trình thực chiến dùng AI để kiếm tiền online qua affiliate, bán hàng, TikTok Shop, YouTube Automation và kinh doanh sản phẩm số.",
     url: `${siteConfig.url}/kiem-tien-bang-ai`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

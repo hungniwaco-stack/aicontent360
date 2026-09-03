@@ -31,7 +31,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: tool.name,
       description: tool.shortDescription,
       url: `${siteConfig.url}${canonical}`,
-      type: "website"
+      type: "website",
+      images: [siteConfig.defaultOgImage]
     }
   };
 }

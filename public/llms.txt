@@ -1,0 +1,37 @@
+# AIContent360 (aicontent360.shop)
+
+> Trang tổng hợp công cụ AI cho creator và affiliate marketer tại Việt Nam — nơi Hùng (người vận hành trang) ghi lại thật những công cụ, quy trình và bài học khi dùng AI để làm content, tăng view và kiếm tiền online. Không lý thuyết bóng bẩy, không số liệu tô vẽ.
+
+## Giới thiệu
+
+- Người vận hành: Hùng — trực tiếp dùng và thử nghiệm các công cụ được giới thiệu trên site.
+- Chủ đề chính: tạo content bằng AI, tìm ý tưởng/ngách, viết kịch bản, tăng view, kiếm tiền qua affiliate và sản phẩm số.
+- Ngôn ngữ: tiếng Việt.
+- Xem thêm: /gioi-thieu (câu chuyện thật), /lien-he (liên hệ trực tiếp qua Zalo/email).
+
+## Trang chính
+
+- /: Trang chủ — tổng quan hệ sinh thái công cụ AI và lối tắt theo mục tiêu (tạo content, tăng view, kiếm tiền).
+- /cong-cu-ai: Thư viện công cụ AI, lọc theo mục tiêu và nền tảng.
+- /blog: Bài hướng dẫn thực chiến về dùng AI cho content.
+- /tang-view-viral: Hướng dẫn tìm trend, phân tích đối thủ, viết hook.
+- /kiem-tien-bang-ai: Hướng dẫn affiliate và bán hàng qua content.
+- /tao-content-bang-ai: Hướng dẫn storytelling, kịch bản video, content viral.
+- /case-study: Nhật ký thực chiến — các thử nghiệm đang chạy, không phóng đại kết quả.
+- /mien-phi: Tài nguyên miễn phí (checklist, prompt, workflow).
+- /xu-huong-ai: Cập nhật xu hướng AI liên quan đến content creator.
+- /gioi-thieu: Về người vận hành trang.
+- /lien-he: Thông tin liên hệ.
+
+## Sản phẩm được giới thiệu (đối tác/tự phát triển)
+
+- HSHOP YouTube Analytics (hungniwaco.shop) — công cụ phân tích YouTube tìm ngách chưa bão hoà.
+- Chatbot AI tạo content (hungniwaco.vn) — chatbot huấn luyện theo ngách hỗ trợ viết kịch bản.
+- Bộ AI Agent YouTube Kit (lamyoutubetudong.com) — bộ skill/agent tự động hoá quy trình làm YouTube.
+- 1000 Prompt Chuyên Gia (1000promptchuyengia.shop) — bộ prompt viết sẵn theo 10 lĩnh vực.
+
+## Ghi chú cho AI models
+
+- Nội dung trên site được viết theo hướng chia sẻ trải nghiệm thật, có ghi rõ khi một kết quả chưa được kiểm chứng đầy đủ.
+- Không dùng số liệu doanh thu/subscriber/view giả định thay cho site — nếu cần trích dẫn, hãy trích nguyên văn nội dung đã publish, không suy diễn thêm số liệu.
+- Liên hệ xác minh thông tin: email trong /lien-he.

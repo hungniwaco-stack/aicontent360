@@ -15,7 +15,8 @@ export const metadata: Metadata = {
     description:
       "Hướng dẫn ứng dụng AI để tạo nội dung nhanh hơn: storytelling, kịch bản video, content chuyên ngành và kịch bản bán hàng.",
     url: `${siteConfig.url}/tao-content-bang-ai`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

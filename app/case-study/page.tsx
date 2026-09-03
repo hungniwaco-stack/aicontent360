@@ -3,16 +3,17 @@ import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Case Study AI Content Hub: Nhật ký thực chiến trung thực",
+  title: "Case Study AIContent360: Nhật ký thực chiến trung thực",
   description:
     "Những thí nghiệm thật đang diễn ra khi dùng AI làm content — chia sẻ trung thực cách làm và quan sát, không số liệu thổi phồng.",
   alternates: { canonical: "/case-study" },
   openGraph: {
-    title: "Case Study AI Content Hub",
+    title: "Case Study AIContent360",
     description:
       "Những thí nghiệm thật đang diễn ra khi dùng AI làm content — chia sẻ trung thực cách làm và quan sát, không số liệu thổi phồng.",
     url: `${siteConfig.url}/case-study`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 
