@@ -5,11 +5,11 @@ import { siteConfig } from "@/data/siteConfig";
 const description = "Checklist, bộ prompt và workflow miễn phí giúp bạn bắt đầu làm content bằng AI nhanh hơn.";
 
 export const metadata: Metadata = {
-  title: "Tài Nguyên Miễn Phí",
+  title: "Tài Nguyên Miễn Phí: checklist, prompt và workflow tạo content AI",
   description,
   alternates: { canonical: "/mien-phi" },
   openGraph: {
-    title: "Tài Nguyên Miễn Phí | AIContent360",
+    title: "Tài Nguyên Miễn Phí: checklist, prompt và workflow",
     description,
     url: `${siteConfig.url}/mien-phi`,
     type: "website",

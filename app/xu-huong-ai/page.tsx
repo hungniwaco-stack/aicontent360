@@ -5,12 +5,12 @@ import { BlogCard } from "@/components/BlogCard";
 import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Xu Hướng AI",
+  title: "Xu Hướng AI cho Content: công cụ và cách làm mới đáng chú ý",
   description:
     "Lọc lại những xu hướng, công cụ và cách làm AI cho content thực sự đáng chú ý — theo góc nhìn của một người đang dùng.",
   alternates: { canonical: "/xu-huong-ai" },
   openGraph: {
-    title: "Xu Hướng AI",
+    title: "Xu Hướng AI cho Content",
     description:
       "Lọc lại những xu hướng, công cụ và cách làm AI cho content thực sự đáng chú ý — theo góc nhìn của một người đang dùng.",
     url: `${siteConfig.url}/xu-huong-ai`,
