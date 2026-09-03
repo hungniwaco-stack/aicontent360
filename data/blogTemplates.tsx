@@ -14,7 +14,16 @@ import { BlogCard } from "@/components/BlogCard";
 export const metadata: Metadata = { title: "Blog AIContent360", description: "Bài viết thực chiến về tạo content, tăng view và kiếm tiền bằng AI." };
 
 export function BlogListPage() {
-  return <div className="container-shell py-12"><h1 className="text-3xl font-bold">Blog AIContent360</h1><div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{blogPosts.map((post)=><BlogCard key={post.id} post={post} />)}</div></div>;
+  return (
+    <div className="container-shell py-12">
+      <Breadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Blog" }]} />
+      <h1 className="mt-3 text-3xl font-bold">Blog AIContent360</h1>
+      <p className="mt-2 max-w-2xl text-ink/70">Bài viết thực chiến về tạo content, tăng view và kiếm tiền bằng AI — viết từ những gì đã thử, không lý thuyết suông.</p>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {blogPosts.map((post) => <BlogCard key={post.id} post={post} />)}
+      </div>
+    </div>
+  );
 }
 
 function slugifyHeading(input: string): string {

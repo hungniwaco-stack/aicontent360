@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { ToolCard } from "@/components/ToolCard";
 import { siteConfig } from "@/data/siteConfig";
 import { tools } from "@/data/tools";
@@ -87,7 +88,8 @@ export default function ToolsPage() {
 
   return (
     <div className="container-shell py-12">
-      <section className="rounded-lg border border-ink/12 bg-white p-6">
+      <Breadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Công cụ AI" }]} />
+      <section className="mt-4 rounded-lg border border-ink/12 bg-white p-6">
         <p className="text-sm font-semibold text-brand-700">Công cụ AI tiêu biểu</p>
         <div className="mt-3 max-w-3xl">
           <h1 className="text-3xl font-bold leading-tight text-brand-900 sm:text-4xl">Chọn nhanh nhóm công cụ phù hợp</h1>
