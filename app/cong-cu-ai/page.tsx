@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     description:
       "Các nhóm công cụ AI đại diện cho creator, affiliate và người làm nội dung video ngắn.",
     url: `${siteConfig.url}/cong-cu-ai`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

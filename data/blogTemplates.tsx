@@ -11,10 +11,10 @@ import { tools } from "@/data/tools";
 import { ToolCard } from "@/components/ToolCard";
 import { BlogCard } from "@/components/BlogCard";
 
-export const metadata: Metadata = { title: "Blog AI Content Hub", description: "Bài viết thực chiến về tạo content, tăng view và kiếm tiền bằng AI." };
+export const metadata: Metadata = { title: "Blog AIContent360", description: "Bài viết thực chiến về tạo content, tăng view và kiếm tiền bằng AI." };
 
 export function BlogListPage() {
-  return <div className="container-shell py-12"><h1 className="text-3xl font-bold">Blog AI Content Hub</h1><div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{blogPosts.map((post)=><BlogCard key={post.id} post={post} />)}</div></div>;
+  return <div className="container-shell py-12"><h1 className="text-3xl font-bold">Blog AIContent360</h1><div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{blogPosts.map((post)=><BlogCard key={post.id} post={post} />)}</div></div>;
 }
 
 function slugifyHeading(input: string): string {
@@ -154,7 +154,7 @@ export function BlogDetail({ slug }: { slug: string }) {
     datePublished: post.date,
     dateModified: post.date,
     author: { "@type": "Person", name: "Hùng", url: "https://aicontent360.shop/gioi-thieu" },
-    publisher: { "@type": "Organization", name: "AI Content Hub" },
+    publisher: { "@type": "Organization", name: "AIContent360" },
     mainEntityOfPage: `https://aicontent360.shop/blog/${post.slug}`
   };
 

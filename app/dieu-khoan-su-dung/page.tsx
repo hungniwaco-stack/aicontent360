@@ -9,10 +9,11 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/dieu-khoan-su-dung" },
   openGraph: {
-    title: "Điều khoản sử dụng | AI Content Hub",
+    title: "Điều khoản sử dụng | AIContent360",
     description,
     url: `${siteConfig.url}/dieu-khoan-su-dung`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

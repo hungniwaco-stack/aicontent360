@@ -1,6 +1,6 @@
-﻿# AI Content Hub
+﻿# AIContent360
 
-Website Next.js App Router + TypeScript + Tailwind CSS cho dự án AI Content Hub.
+Website Next.js App Router + TypeScript + Tailwind CSS cho dự án AIContent360.
 
 ## Cài đặt
 

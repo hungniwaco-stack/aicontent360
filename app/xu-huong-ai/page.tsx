@@ -14,7 +14,8 @@ export const metadata: Metadata = {
     description:
       "Lọc lại những xu hướng, công cụ và cách làm AI cho content thực sự đáng chú ý — theo góc nhìn của một người đang dùng.",
     url: `${siteConfig.url}/xu-huong-ai`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

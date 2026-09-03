@@ -34,7 +34,8 @@ export const metadata: Metadata = {
     description:
       "Đọc tín hiệu tăng trưởng để vào ngách trước khi bão hoà, phân tích đối thủ và viết hook giữ chân người xem.",
     url: `${siteConfig.url}/tang-view-viral`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

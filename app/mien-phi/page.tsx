@@ -9,10 +9,11 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/mien-phi" },
   openGraph: {
-    title: "Tài Nguyên Miễn Phí | AI Content Hub",
+    title: "Tài Nguyên Miễn Phí | AIContent360",
     description,
     url: `${siteConfig.url}/mien-phi`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

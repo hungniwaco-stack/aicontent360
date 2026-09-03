@@ -24,23 +24,25 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "AI Content Hub",
-    template: "%s | AI Content Hub"
+    default: "AIContent360",
+    template: "%s | AIContent360"
   },
   description: "Nền tảng ứng dụng AI để tạo content, tăng view và kiếm tiền online.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "AI Content Hub",
+    title: "AIContent360",
     description: "Khám phá công cụ AI thực chiến để tạo content, tăng view và kiếm tiền online.",
     url: siteConfig.url,
-    siteName: "AI Content Hub",
+    siteName: "AIContent360",
     locale: "vi_VN",
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Content Hub",
-    description: "Khám phá công cụ AI thực chiến để tạo content, tăng view và kiếm tiền online."
+    title: "AIContent360",
+    description: "Khám phá công cụ AI thực chiến để tạo content, tăng view và kiếm tiền online.",
+    images: ["/og-default.png"]
   }
 };
 

@@ -21,7 +21,8 @@ export const metadata: Metadata = {
     description:
       "Khám phá hệ sinh thái công cụ AI thực chiến giúp bạn tìm ý tưởng viral, viết kịch bản, xây kênh nội dung và triển khai affiliate hiệu quả hơn.",
     url: siteConfig.url,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

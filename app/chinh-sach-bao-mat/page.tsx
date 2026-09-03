@@ -8,10 +8,11 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/chinh-sach-bao-mat" },
   openGraph: {
-    title: "Chính sách bảo mật | AI Content Hub",
+    title: "Chính sách bảo mật | AIContent360",
     description,
     url: `${siteConfig.url}/chinh-sach-bao-mat`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

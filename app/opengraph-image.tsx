@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "AI Content Hub — công cụ AI cho creator và affiliate marketer Việt Nam";
+export const alt = "AIContent360 — công cụ AI cho creator và affiliate marketer Việt Nam";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -37,7 +37,7 @@ export default async function Image() {
             lineHeight: 1.1
           }}
         >
-          AI Content Hub
+          AIContent360
         </div>
         <div
           style={{

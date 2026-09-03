@@ -34,7 +34,8 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
       title: `Chuyên mục ${matched}`,
       description,
       url: `${siteConfig.url}${canonical}`,
-      type: "website"
+      type: "website",
+      images: [siteConfig.defaultOgImage]
     }
   };
 }

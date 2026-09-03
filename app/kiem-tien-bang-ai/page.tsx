@@ -35,7 +35,8 @@ export const metadata: Metadata = {
     description:
       "Cách tiếp cận kiếm tiền từ content theo hướng bền vững — cho giá trị trước, bán sau, và luôn trung thực.",
     url: `${siteConfig.url}/kiem-tien-bang-ai`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

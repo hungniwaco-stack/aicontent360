@@ -10,10 +10,11 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/gioi-thieu" },
   openGraph: {
-    title: "Giới Thiệu | AI Content Hub",
+    title: "Giới Thiệu | AIContent360",
     description,
     url: `${siteConfig.url}/gioi-thieu`,
-    type: "profile"
+    type: "profile",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

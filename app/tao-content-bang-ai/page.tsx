@@ -34,7 +34,8 @@ export const metadata: Metadata = {
     description:
       "Hướng dẫn ứng dụng AI để tạo nội dung nhanh hơn: storytelling, kịch bản video, content chuyên ngành và kịch bản bán hàng.",
     url: `${siteConfig.url}/tao-content-bang-ai`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 
@@ -75,7 +76,7 @@ export default function Page() {
       <section className="max-w-3xl rounded-lg border border-ink/12 bg-white p-6">
         <h2 className="text-xl font-bold text-brand-900">Bắt đầu thế nào — 3 bước</h2>
         <ol className="mt-4 space-y-3 text-sm leading-6 text-ink/80">
-          <li><strong>1. Cho AI biết rõ đối tượng và mục tiêu</strong> — "người mới làm content" và "chủ shop mỹ phẩm" cần giọng khác hẳn nhau.</li>
+          <li><strong>1. Cho AI biết rõ đối tượng và mục tiêu</strong> — &quot;người mới làm content&quot; và &quot;chủ shop mỹ phẩm&quot; cần giọng khác hẳn nhau.</li>
           <li><strong>2. Lấy bản nháp làm điểm bắt đầu, không phải điểm kết thúc.</strong> Luôn chỉnh hook và thêm chi tiết thật của riêng bạn.</li>
           <li><strong>3. Đọc to kịch bản trước khi quay.</strong> Nếu nghe như đang đọc bài, viết lại cho giống đang nói chuyện.</li>
         </ol>
