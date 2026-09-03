@@ -84,7 +84,7 @@ export default function Page() {
     <div className="container-shell space-y-8 py-12">
       <section>
         <h1 className="text-3xl font-bold">Case Study — Nhật ký thực chiến</h1>
-        <p className="mt-3 text-slate-700">
+        <p className="mt-3 text-ink/80">
           Hầu hết trang &quot;case study&quot; cho bạn xem những con số đẹp. Trang này thì khác. Mình không trưng thành tích
           vì vẫn đang trên đường — thứ chia sẻ ở đây là những thí nghiệm thật đang chạy: dùng công cụ gì, làm thế nào,
           quan sát được gì, cả những chỗ chưa hiệu quả. Khi có kết quả rõ ràng, mình cập nhật bằng số thật.
@@ -93,7 +93,7 @@ export default function Page() {
 
       <section className="grid gap-4 lg:grid-cols-2">
         {experiments.map((item) => (
-          <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-6">
+          <article key={item.title} className="rounded-lg border border-ink/12 bg-white p-6">
             <h2 className="text-xl font-bold">{item.title}</h2>
             <p className="mt-1 text-sm text-brand-700">
               Trạng thái: {item.status}
@@ -106,14 +106,14 @@ export default function Page() {
                 </>
               ) : null}
             </p>
-            <p className="mt-3 text-slate-700">{item.summary}</p>
+            <p className="mt-3 text-ink/80">{item.summary}</p>
             <h3 className="mt-4 font-semibold">Điều mình quan sát được</h3>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-700">
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-ink/80">
               {item.observations.map((m) => (
                 <li key={m}>{m}</li>
               ))}
             </ul>
-            <p className="mt-4 rounded-xl bg-slate-100 p-3 text-sm text-slate-700">
+            <p className="mt-4 rounded-xl bg-ink/[0.05] p-3 text-sm text-ink/80">
               <span className="font-semibold">Bài học:</span> {item.lesson}
             </p>
             {item.link ? (
@@ -127,10 +127,10 @@ export default function Page() {
         ))}
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-6">
+      <section className="rounded-lg border border-ink/12 bg-white p-6">
         <h2 className="text-2xl font-bold">Vì sao trang này không có &quot;số liệu khủng&quot;?</h2>
-        <p className="mt-3 text-slate-700">Vì mình không muốn bịa.</p>
-        <p className="mt-3 text-slate-700">
+        <p className="mt-3 text-ink/80">Vì mình không muốn bịa.</p>
+        <p className="mt-3 text-ink/80">
           Rất dễ viết &quot;100.000 view trong 30 ngày&quot; để trang trông ấn tượng. Nhưng nếu bạn tin rồi làm theo mà
           không ra kết quả như vậy, mình đã lừa bạn — và tự phá uy tín của chính mình. Mình chọn cách khó hơn: ghi lại
           thật những gì đang diễn ra, kể cả khi còn dang dở. Khi mình đạt cột mốc thật, bạn sẽ là người đầu tiên thấy con
@@ -138,9 +138,9 @@ export default function Page() {
         </p>
       </section>
 
-      <section className="rounded-2xl bg-brand-900 p-6 text-white">
+      <section className="rounded-lg bg-brand-900 p-6 text-white">
         <h2 className="text-2xl font-bold">Bạn muốn bắt đầu từ đâu?</h2>
-        <p className="mt-2 text-slate-200">
+        <p className="mt-2 text-paper/80">
           Hay đổ công vào chủ đề rồi nhận view thấp? Vấn đề thường ở khâu chọn chủ đề. Kẹt ở viết kịch bản? Thử công cụ
           viết theo ngách.
         </p>

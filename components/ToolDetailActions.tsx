@@ -5,18 +5,18 @@ import { Tool } from "@/types";
 
 export function ToolDetailActions({ href, tool }: { href: string; tool: Tool }) {
   return (
-    <aside className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-      <p className="text-sm font-semibold uppercase tracking-normal text-emerald-700">Giới thiệu công cụ</p>
+    <aside className="rounded-xl border border-ink/12 bg-white p-5 shadow-sm">
+      <p className="text-sm font-semibold uppercase tracking-normal text-brand-700">Giới thiệu công cụ</p>
       <h2 className="mt-3 text-xl font-bold leading-snug text-brand-900">{tool.name}</h2>
-      <p className="mt-3 text-sm leading-6 text-slate-600">{tool.longDescription}</p>
+      <p className="mt-3 text-sm leading-6 text-ink/70">{tool.longDescription}</p>
 
       <div className="mt-5 space-y-4">
         <div>
-          <h3 className="text-sm font-semibold text-slate-900">Phù hợp với</h3>
-          <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-700">
+          <h3 className="text-sm font-semibold text-brand-900">Phù hợp với</h3>
+          <ul className="mt-2 space-y-2 text-sm leading-6 text-ink/80">
             {tool.suitableFor.slice(0, 3).map((item) => (
               <li key={item} className="flex gap-2">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600" />
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-700" />
                 <span>{item}</span>
               </li>
             ))}
@@ -24,8 +24,8 @@ export function ToolDetailActions({ href, tool }: { href: string; tool: Tool }) 
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-slate-900">Công cụ hỗ trợ tạo</h3>
-          <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-700">
+          <h3 className="text-sm font-semibold text-brand-900">Công cụ hỗ trợ tạo</h3>
+          <ul className="mt-2 space-y-2 text-sm leading-6 text-ink/80">
             {tool.outputs.slice(0, 3).map((output) => (
               <li key={output} className="flex gap-2">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-700" />
@@ -36,7 +36,7 @@ export function ToolDetailActions({ href, tool }: { href: string; tool: Tool }) 
         </div>
       </div>
 
-      <p className="mt-5 rounded-lg bg-slate-50 p-3 text-sm leading-6 text-slate-600">
+      <p className="mt-5 rounded-lg bg-paper p-3 text-sm leading-6 text-ink/70">
         Trang chính có video hướng dẫn, mô tả chi tiết và tài nguyên đi kèm cho công cụ này.
       </p>
 

@@ -144,7 +144,8 @@ export function BlogDetail({ slug }: { slug: string }) {
   if (!post) return notFound();
   const relatedTools = pickToolsByCategory(post.category);
   const { blocks, toc } = buildArticle(post.content);
-  const sections = [...toc, { id: "cong-cu", title: "Công cụ đề xuất" }, { id: "faq", title: "FAQ" }];
+  const sections = [...toc, { id: "cong-cu", title: "Công cụ đề xuất" }, ...(post.faq.length > 0 ? [{ id: "faq", title: "FAQ" }] : [])];
+  const displayDate = new Date(post.date).toLocaleDateString("vi-VN", { day: "2-digit", month: "2-digit", year: "numeric" });
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -152,7 +153,7 @@ export function BlogDetail({ slug }: { slug: string }) {
     description: post.excerpt,
     datePublished: post.date,
     dateModified: post.date,
-    author: { "@type": "Organization", name: post.author },
+    author: { "@type": "Person", name: "Hùng", url: "https://aicontent360.shop/gioi-thieu" },
     publisher: { "@type": "Organization", name: "AI Content Hub" },
     mainEntityOfPage: `https://aicontent360.shop/blog/${post.slug}`
   };
@@ -165,6 +166,9 @@ export function BlogDetail({ slug }: { slug: string }) {
         <div className="rounded-2xl border border-slate-200 bg-white p-6">
           <h1 className="text-3xl font-bold">{post.title}</h1>
           <p className="mt-4 text-lg text-slate-600">{post.excerpt}</p>
+          <p className="mt-3 text-sm text-slate-500">
+            Viết bởi <Link href="/gioi-thieu" className="font-medium text-brand-700 underline">Hùng</Link> · Cập nhật {displayDate}
+          </p>
 
           {blocks}
 
@@ -175,7 +179,7 @@ export function BlogDetail({ slug }: { slug: string }) {
         </div>
         <TableOfContents items={sections} />
       </article>
-      <section id="faq"><FAQSection faqs={post.faq} /></section>
+      {post.faq.length > 0 ? <section id="faq"><FAQSection faqs={post.faq} /></section> : null}
       <RelatedPosts currentSlug={post.slug} />
     </div>
   );

@@ -10,6 +10,7 @@ const slugify = (value: string) => value.toLowerCase().replaceAll("&", "va").rep
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
+  const buildDate = new Date();
   const staticPaths = [
     "",
     "/tang-view-viral",
@@ -22,11 +23,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/gioi-thieu",
     "/lien-he"
   ];
-  const toolPaths = tools.map((tool) => `/cong-cu-ai/${tool.slug}`);
-  const blogPaths = blogPosts.map((post) => `/blog/${post.slug}`);
-  const blogCategoryPaths = blogCategories.map((category) => `/blog/chuyen-muc/${slugify(category)}`);
-
-  return [...staticPaths, ...toolPaths, ...blogPaths, ...blogCategoryPaths].map((path) => ({
-    url: `${base}${path}`
+  const staticEntries = staticPaths.map((path) => ({ url: `${base}${path}`, lastModified: buildDate }));
+  const toolEntries = tools.map((tool) => ({ url: `${base}/cong-cu-ai/${tool.slug}`, lastModified: buildDate }));
+  const blogEntries = blogPosts.map((post) => ({
+    url: `${base}/blog/${post.slug}`,
+    lastModified: new Date(post.date)
   }));
+  const blogCategoryEntries = blogCategories.map((category) => ({
+    url: `${base}/blog/chuyen-muc/${slugify(category)}`,
+    lastModified: buildDate
+  }));
+
+  return [...staticEntries, ...toolEntries, ...blogEntries, ...blogCategoryEntries];
 }

@@ -2,6 +2,44 @@
 
 export const tools: Tool[] = [
   {
+    id: "24",
+    slug: "1000-prompt-chuyen-gia",
+    name: "1000 Prompt Chuyên Gia",
+    category: "Prompt & Năng suất",
+    goal: ["Tạo content", "Kiếm tiền"],
+    platform: ["Website"],
+    price: "100K-300K",
+    isFree: false,
+    isFeatured: true,
+    isNew: true,
+    shortDescription: "1000 prompt AI viết sẵn theo cấu trúc, chia 10 lĩnh vực — điền thông tin là dùng ngay.",
+    longDescription: "Bộ 10 file Word, mỗi file 100 prompt (tổng 1000), bao phủ kinh doanh, marketing, bán hàng, tài chính, năng suất, lãnh đạo, kiếm tiền online, AI trong kinh doanh, cuộc sống và đa lĩnh vực. Prompt có cấu trúc vai trò - bối cảnh - đầu vào - kết quả, dùng được với ChatGPT, Gemini, Claude.",
+    suitableFor: ["Người mới dùng AI", "Chủ shop / kinh doanh", "Freelancer content & marketing"],
+    outputs: ["10 file Word theo lĩnh vực", "1000 prompt sao chép - thay - dùng", "Khung hỏi AI cho công việc thực tế"],
+    demo: "Demo: chọn prompt đúng mục tiêu, thay phần trong ngoặc, dán vào AI là có kết quả.",
+    productUrl: "https://1000promptchuyengia.shop",
+    faqs: [{ question: "Giá bao nhiêu?", answer: "Combo trọn bộ 199.000đ (mua lẻ từng pack 49.000đ)." }, { question: "Cần biết kỹ thuật không?", answer: "Không. Chỉ cần điền thông tin vào phần gợi ý rồi dán vào ChatGPT/Gemini/Claude." }]
+  },
+  {
+    id: "23",
+    slug: "bo-ai-agent-youtube-kit",
+    name: "Bộ AI Agent YouTube Kit",
+    category: "YouTube Automation",
+    goal: ["Tạo content", "Tăng view", "Kiếm tiền"],
+    platform: ["YouTube", "Website"],
+    price: "100K-300K",
+    isFree: false,
+    isFeatured: true,
+    isNew: true,
+    shortDescription: "33 Skills AI tự động hoá toàn bộ quy trình làm YouTube — nghiên cứu, kịch bản, hình ảnh/video, xuất bản.",
+    longDescription: "Bộ 33 Skills + 9 Agents + Google Sheets 10-tab pipeline: từ nghiên cứu từ khoá đến kịch bản (60 hook templates), master prompts Kling/Runway/Sora/Midjourney, rồi xuất bản. Mua một lần, dùng vĩnh viễn.",
+    suitableFor: ["Người làm kênh YouTube faceless", "Creator muốn tự động hoá sản xuất", "Người mới muốn quy trình dựng sẵn"],
+    outputs: ["Kịch bản + 60 hook templates", "Master prompts cho 4 nền tảng AI video", "Google Sheets pipeline 10-tab"],
+    demo: "Demo: đi từ từ khoá đến kịch bản và prompt hình ảnh/video, quản lý toàn bộ trong Google Sheets.",
+    productUrl: "https://lamyoutubetudong.com",
+    faqs: [{ question: "Giá bao nhiêu?", answer: "Flash sale 179.000đ — mua một lần, dùng vĩnh viễn." }, { question: "Không rành AI có dùng được không?", answer: "Được — skill dạng prompt kèm hướng dẫn copy-paste và Google Sheets dựng sẵn." }]
+  },
+  {
     id: "1",
     slug: "chatbot-tao-video-suc-khoe",
     name: "Chatbot tạo video Sức Khỏe",
@@ -182,7 +220,7 @@ export const tools: Tool[] = [
   {
     id: "14",
     slug: "tro-ly-chatbot-ho-tro-tao-prompt-tao-video-chu-de-suc-khoe-dang-nhan-vat-hoa",
-    name: "Trợ Lý Chatbot Hỗ Trợ Tạo Prompt Tạo Video Chủ Đề Sức Khỏe Dạng Nhân Vật Hóa",
+    name: "Chatbot Sức Khỏe Nhân Vật Hóa",
     category: "Sức Khỏe & Làm Đẹp",
     goal: ["Sức khỏe", "Tạo content"],
     platform: ["TikTok", "YouTube", "Website"],
@@ -200,7 +238,7 @@ export const tools: Tool[] = [
   {
     id: "15",
     slug: "tro-ly-tao-prompt-co-quan-noi-tang-len-tieng-kem-san-pham-cuoi-video-lam-affiliate",
-    name: "Trợ Lý Tạo Prompt Cơ Quan Nội Tạng Lên Tiếng | Kèm Sản Phẩm Cuối Video Làm Affiliate",
+    name: "Cơ Quan Nội Tạng Lên Tiếng",
     category: "Sức Khỏe & Làm Đẹp",
     goal: ["Sức khỏe", "Affiliate"],
     platform: ["TikTok", "YouTube", "Affiliate"],
@@ -218,7 +256,7 @@ export const tools: Tool[] = [
   {
     id: "16",
     slug: "chu-de-suc-khoe-nhan-hoa-noi-dau-phong-dai-thi-giac",
-    name: "Chủ Đề Sức Khỏe Nhân Hóa Nỗi Đau & Phóng Đại Thị Giác",
+    name: "Nhân Hóa Nỗi Đau Cơ Thể",
     category: "Sức Khỏe & Làm Đẹp",
     goal: ["Sức khỏe", "Storytelling"],
     platform: ["TikTok", "YouTube", "Website"],
@@ -236,7 +274,7 @@ export const tools: Tool[] = [
   {
     id: "17",
     slug: "chu-de-suc-khoe-nhan-hoa-tieng-noi-vi-khuan",
-    name: "Chủ Đề Sức Khỏe Nhân Hóa Tiếng Nói Vi Khuẩn",
+    name: "Vi Khuẩn Lên Tiếng",
     category: "Sức Khỏe & Làm Đẹp",
     goal: ["Sức khỏe", "Storytelling", "Miễn phí"],
     platform: ["TikTok", "YouTube", "Website"],
@@ -326,7 +364,7 @@ export const tools: Tool[] = [
   {
     id: "19",
     slug: "con-trung-tao-cr7-sieu-dinh",
-    name: "Con Trùng Tạo CR7 Siêu Đỉnh | Trợ Lý Chatbot Tạo Prompt Kiến Trúc Đa Vũ Trụ",
+    name: "Đàn Côn Trùng Dựng Hình Kỳ Quan",
     category: "Kiến Trúc & Sáng Tạo",
     goal: ["Tạo content", "Tăng view", "Miễn phí"],
     platform: ["TikTok", "YouTube", "Facebook"],

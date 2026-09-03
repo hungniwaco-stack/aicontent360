@@ -1,9 +1,19 @@
 import { Metadata } from "next";
 import { siteConfig } from "@/data/siteConfig";
 
+const description =
+  "Điều khoản khi truy cập AIContent360 và sử dụng các tài nguyên, công cụ AI, nội dung số được giới thiệu trên website.";
+
 export const metadata: Metadata = {
   title: "Điều khoản sử dụng",
-  description: "Điều khoản khi truy cập AIContent360 và sử dụng các tài nguyên, công cụ AI, nội dung số được giới thiệu trên website."
+  description,
+  alternates: { canonical: "/dieu-khoan-su-dung" },
+  openGraph: {
+    title: "Điều khoản sử dụng | AI Content Hub",
+    description,
+    url: `${siteConfig.url}/dieu-khoan-su-dung`,
+    type: "website"
+  }
 };
 
 const terms = [
@@ -37,21 +47,21 @@ export default function Page() {
   return (
     <main className="container-shell py-12">
       <article className="mx-auto max-w-4xl">
-        <p className="text-sm font-semibold uppercase tracking-wide text-emerald-700">Cập nhật: 20/06/2026</p>
-        <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Điều khoản sử dụng</h1>
-        <p className="mt-4 text-base leading-7 text-slate-600">
+        <p className="text-sm font-semibold uppercase tracking-wide text-brand-700">Cập nhật: 20/06/2026</p>
+        <h1 className="mt-3 text-3xl font-bold tracking-tight text-brand-900 sm:text-4xl">Điều khoản sử dụng</h1>
+        <p className="mt-4 text-base leading-7 text-ink/70">
           Khi tiếp tục sử dụng website, bạn đồng ý với các điều khoản dưới đây. Nếu không đồng ý, vui lòng ngừng sử dụng website và liên
           hệ chúng tôi để được hỗ trợ.
         </p>
         <div className="mt-8 space-y-5">
           {terms.map((term) => (
-            <section key={term.title} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-lg font-semibold text-slate-950">{term.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{term.body}</p>
+            <section key={term.title} className="rounded-lg border border-ink/12 bg-white p-6 shadow-sm">
+              <h2 className="text-lg font-semibold text-brand-900">{term.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-ink/70">{term.body}</p>
             </section>
           ))}
         </div>
-        <div className="mt-6 rounded-lg border border-slate-200 bg-slate-50 p-5 text-sm leading-7 text-slate-600">
+        <div className="mt-6 rounded-lg border border-ink/12 bg-paper p-5 text-sm leading-7 text-ink/70">
           Cần làm rõ quyền sử dụng hoặc phạm vi áp dụng cho một sản phẩm cụ thể? Gửi email tới{" "}
           <a href={`mailto:${siteConfig.contact.email}`} className="font-semibold text-brand-700 underline">
             {siteConfig.contact.email}

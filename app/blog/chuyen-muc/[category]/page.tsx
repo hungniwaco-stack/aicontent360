@@ -49,9 +49,9 @@ export default async function Page({ params }: { params: Promise<{ category: str
     <div className="container-shell py-12">
       <Breadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Blog", href: "/blog" }, { label: matched }]} />
       <h1 className="mt-3 text-3xl font-bold">Chuyên mục: {matched}</h1>
-      <p className="mt-2 text-slate-600">Bộ bài viết thực chiến theo chủ đề {matched}.</p>
+      <p className="mt-2 text-ink/70">Bộ bài viết thực chiến theo chủ đề {matched}.</p>
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.length > 0 ? posts.map((post) => <BlogCard key={post.id} post={post} />) : <p className="text-slate-600">Đang cập nhật bài viết cho chuyên mục này.</p>}
+        {posts.length > 0 ? posts.map((post) => <BlogCard key={post.id} post={post} />) : <p className="text-ink/70">Đang cập nhật bài viết cho chuyên mục này.</p>}
       </div>
     </div>
   );

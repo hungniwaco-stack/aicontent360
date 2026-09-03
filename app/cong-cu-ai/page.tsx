@@ -66,11 +66,11 @@ export default function ToolsPage() {
 
   return (
     <div className="container-shell py-12">
-      <section className="rounded-lg border border-slate-200 bg-white p-6">
-        <p className="text-sm font-semibold text-emerald-700">Công cụ AI tiêu biểu</p>
+      <section className="rounded-lg border border-ink/12 bg-white p-6">
+        <p className="text-sm font-semibold text-brand-700">Công cụ AI tiêu biểu</p>
         <div className="mt-3 max-w-3xl">
           <h1 className="text-3xl font-bold leading-tight text-brand-900 sm:text-4xl">Chọn nhanh nhóm công cụ phù hợp</h1>
-          <p className="mt-3 text-base leading-7 text-slate-600">
+          <p className="mt-3 text-base leading-7 text-ink/70">
             Trang này chỉ hiển thị các công cụ đại diện để bạn nắm nhanh từng nhóm ứng dụng. Khi cần xem đầy đủ video hướng dẫn và bộ công cụ chi tiết,
             hãy truy cập trang chính.
           </p>
@@ -82,26 +82,26 @@ export default function ToolsPage() {
           <div className="mb-4">
             <h2 className="text-2xl font-bold text-brand-900">Công cụ nổi bật</h2>
           </div>
-          <article className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+          <article className="overflow-hidden rounded-lg border border-ink/12 bg-white shadow-sm">
             <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,.85fr)]">
               <div className="p-6 sm:p-8">
                 <div className="flex flex-wrap items-center gap-3">
                   <p className="text-xs font-semibold uppercase tracking-normal text-brand-700">{featuredTool.category}</p>
-                  <span className="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700">Nổi bật</span>
+                  <span className="rounded-full bg-brand-50 px-2.5 py-1 text-xs font-medium text-brand-700">Nổi bật</span>
                 </div>
                 <h3 className="mt-4 text-2xl font-bold leading-tight text-brand-900 sm:text-3xl">{featuredTool.name}</h3>
-                <p className="mt-4 text-base leading-7 text-slate-700">{featuredTool.shortDescription}</p>
-                <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{featuredTool.longDescription}</p>
+                <p className="mt-4 text-base leading-7 text-ink/80">{featuredTool.shortDescription}</p>
+                <p className="mt-3 max-w-3xl text-sm leading-6 text-ink/70">{featuredTool.longDescription}</p>
               </div>
 
-              <div className="border-t border-slate-200 bg-slate-50 p-6 sm:p-8 lg:border-l lg:border-t-0">
+              <div className="border-t border-ink/12 bg-paper p-6 sm:p-8 lg:border-l lg:border-t-0">
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                   <div>
                     <h4 className="text-sm font-semibold text-brand-900">Phù hợp với</h4>
-                    <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700">
+                    <ul className="mt-3 space-y-2 text-sm leading-6 text-ink/80">
                       {featuredTool.suitableFor.map((item) => (
                         <li key={item} className="flex gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600" />
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-700" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -110,7 +110,7 @@ export default function ToolsPage() {
 
                   <div>
                     <h4 className="text-sm font-semibold text-brand-900">Công cụ hỗ trợ</h4>
-                    <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700">
+                    <ul className="mt-3 space-y-2 text-sm leading-6 text-ink/80">
                       {featuredTool.outputs.map((output) => (
                         <li key={output} className="flex gap-2">
                           <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-700" />
@@ -121,7 +121,7 @@ export default function ToolsPage() {
                   </div>
                 </div>
 
-                <p className="mt-6 border-t border-slate-200 pt-5 text-sm leading-6 text-slate-600">
+                <p className="mt-6 border-t border-ink/12 pt-5 text-sm leading-6 text-ink/70">
                   Video hướng dẫn và thông tin chi tiết được cung cấp tại website chính thức của công cụ.
                 </p>
                 <a
@@ -146,7 +146,7 @@ export default function ToolsPage() {
             <section key={group.title}>
               <div className="mb-4 max-w-3xl">
                 <h2 className="text-2xl font-bold text-brand-900">{group.title}</h2>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{group.description}</p>
+                <p className="mt-2 text-sm leading-6 text-ink/70">{group.description}</p>
               </div>
               <div className="grid gap-4 md:grid-cols-3">
                 {groupTools.map((tool) => (

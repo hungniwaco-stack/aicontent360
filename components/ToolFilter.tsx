@@ -65,7 +65,7 @@ export function ToolFilter() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[280px_1fr]">
-      <aside className="h-fit rounded-lg border border-slate-200 bg-white p-4">
+      <aside className="h-fit rounded-lg border border-ink/12 bg-white p-4">
         <div className="flex items-center justify-between gap-3">
           <h2 className="text-base font-semibold text-brand-900">Bộ lọc</h2>
           {hasFilters ? (
@@ -77,23 +77,23 @@ export function ToolFilter() {
 
         <div className="mt-4 space-y-5">
           <div>
-            <label htmlFor="tool-search" className="text-sm font-semibold text-slate-700">Tìm kiếm</label>
+            <label htmlFor="tool-search" className="text-sm font-semibold text-ink/80">Tìm kiếm</label>
             <input
               id="tool-search"
               value={q}
               onChange={(event) => setParam("q", event.target.value)}
               placeholder="Tên, ngách, mục tiêu..."
-              className="mt-2 w-full rounded-lg border border-slate-300 p-3 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-blue-100"
+              className="mt-2 w-full rounded-lg border border-ink/20 p-3 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-50"
             />
           </div>
 
           <div>
-            <label htmlFor="tool-price" className="text-sm font-semibold text-slate-700">Mức giá</label>
+            <label htmlFor="tool-price" className="text-sm font-semibold text-ink/80">Mức giá</label>
             <select
               id="tool-price"
               value={price}
               onChange={(event) => setParam("price", event.target.value)}
-              className="mt-2 w-full rounded-lg border border-slate-300 p-3 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-blue-100"
+              className="mt-2 w-full rounded-lg border border-ink/20 p-3 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-50"
             >
               <option value="">Tất cả mức giá</option>
               {priceOptions.map((option) => (
@@ -103,7 +103,7 @@ export function ToolFilter() {
           </div>
 
           <fieldset>
-            <legend className="text-sm font-semibold text-slate-700">Mục tiêu</legend>
+            <legend className="text-sm font-semibold text-ink/80">Mục tiêu</legend>
             <div className="mt-2 flex flex-wrap gap-2">
               {goalOptions.map((option) => {
                 const active = selectedGoal === option;
@@ -113,7 +113,7 @@ export function ToolFilter() {
                     aria-pressed={active}
                     href={getSingleFilterHref("goal", selectedGoal, option)}
                     className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
-                      active ? "bg-brand-700 text-white" : "bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-brand-700"
+                      active ? "bg-brand-700 text-white" : "bg-ink/[0.05] text-ink/80 hover:bg-brand-50 hover:text-brand-700"
                     }`}
                   >
                     {option}
@@ -127,12 +127,12 @@ export function ToolFilter() {
       </aside>
 
       <section>
-        <div className="mb-4 flex flex-col gap-2 rounded-lg border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-4 flex flex-col gap-2 rounded-lg border border-ink/12 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-sm font-semibold text-brand-900">Tìm thấy {filtered.length} công cụ phù hợp</p>
-            <p className="mt-1 text-sm text-slate-600">Ưu tiên công cụ có đầu ra cụ thể và mô tả dễ chọn nhanh.</p>
+            <p className="mt-1 text-sm text-ink/70">Ưu tiên công cụ có đầu ra cụ thể và mô tả dễ chọn nhanh.</p>
           </div>
-          <p className="text-sm text-slate-500">{tools.length} công cụ trong thư viện</p>
+          <p className="text-sm text-ink/55">{tools.length} công cụ trong thư viện</p>
         </div>
 
         {filtered.length > 0 ? (
@@ -142,9 +142,9 @@ export function ToolFilter() {
             ))}
           </div>
         ) : (
-          <div className="rounded-lg border border-dashed border-slate-300 bg-white p-8 text-center">
+          <div className="rounded-lg border border-dashed border-ink/20 bg-white p-8 text-center">
             <h3 className="text-lg font-semibold text-brand-900">Chưa có công cụ khớp bộ lọc</h3>
-            <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-600">Thử bỏ bớt một mục tiêu, đổi mức giá hoặc tìm bằng từ khóa rộng hơn.</p>
+            <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-ink/70">Thử bỏ bớt một mục tiêu, đổi mức giá hoặc tìm bằng từ khóa rộng hơn.</p>
             <button type="button" onClick={clearFilters} className="mt-4 rounded-md bg-brand-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-900">
               Xem lại toàn bộ thư viện
             </button>

@@ -1,9 +1,18 @@
 import { Metadata } from "next";
 import { siteConfig } from "@/data/siteConfig";
 
+const description = "Cách AIContent360 thu thập, sử dụng và bảo vệ thông tin cá nhân khi bạn dùng website.";
+
 export const metadata: Metadata = {
   title: "Chính sách bảo mật",
-  description: "Cách AIContent360 thu thập, sử dụng và bảo vệ thông tin cá nhân khi bạn dùng website."
+  description,
+  alternates: { canonical: "/chinh-sach-bao-mat" },
+  openGraph: {
+    title: "Chính sách bảo mật | AI Content Hub",
+    description,
+    url: `${siteConfig.url}/chinh-sach-bao-mat`,
+    type: "website"
+  }
 };
 
 const sections = [
@@ -48,17 +57,17 @@ export default function Page() {
   return (
     <main className="container-shell py-12">
       <article className="mx-auto max-w-4xl">
-        <p className="text-sm font-semibold uppercase tracking-wide text-emerald-700">Cập nhật: 20/06/2026</p>
-        <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Chính sách bảo mật</h1>
-        <p className="mt-4 text-base leading-7 text-slate-600">
+        <p className="text-sm font-semibold uppercase tracking-wide text-brand-700">Cập nhật: 20/06/2026</p>
+        <h1 className="mt-3 text-3xl font-bold tracking-tight text-brand-900 sm:text-4xl">Chính sách bảo mật</h1>
+        <p className="mt-4 text-base leading-7 text-ink/70">
           Chính sách này giải thích cách {siteConfig.contact.businessName} xử lý thông tin khi bạn truy cập website, gửi email hỗ trợ
           hoặc mua/sử dụng sản phẩm số được giới thiệu trên hệ sinh thái AIContent360.
         </p>
         <div className="mt-8 space-y-5">
           {sections.map((section) => (
-            <section key={section.title} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-lg font-semibold text-slate-950">{section.title}</h2>
-              <div className="mt-3 space-y-3 text-sm leading-7 text-slate-600">
+            <section key={section.title} className="rounded-lg border border-ink/12 bg-white p-6 shadow-sm">
+              <h2 className="text-lg font-semibold text-brand-900">{section.title}</h2>
+              <div className="mt-3 space-y-3 text-sm leading-7 text-ink/70">
                 {section.body.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -66,7 +75,7 @@ export default function Page() {
             </section>
           ))}
         </div>
-        <div className="mt-6 rounded-lg border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-amber-950">
+        <div className="mt-6 rounded-lg border border-brand-50 bg-brand-50 p-5 text-sm leading-7 text-brand-900">
           Nội dung này được xây dựng theo định hướng tuân thủ Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân và không thay thế tư vấn
           pháp lý chuyên nghiệp. Liên hệ:{" "}
           <a href={`mailto:${siteConfig.contact.email}`} className="font-semibold underline">

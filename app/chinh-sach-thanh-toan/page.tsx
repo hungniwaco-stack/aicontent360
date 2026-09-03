@@ -1,9 +1,18 @@
 import { Metadata } from "next";
 import { siteConfig } from "@/data/siteConfig";
 
+const description = "Thông tin về thanh toán, giao sản phẩm số, hỗ trợ đổi trả và hoàn tiền trên AIContent360.";
+
 export const metadata: Metadata = {
   title: "Chính sách thanh toán",
-  description: "Thông tin về thanh toán, giao sản phẩm số, hỗ trợ đổi trả và hoàn tiền trên AIContent360."
+  description,
+  alternates: { canonical: "/chinh-sach-thanh-toan" },
+  openGraph: {
+    title: "Chính sách thanh toán | AI Content Hub",
+    description,
+    url: `${siteConfig.url}/chinh-sach-thanh-toan`,
+    type: "website"
+  }
 };
 
 const policies = [
@@ -37,21 +46,21 @@ export default function Page() {
   return (
     <main className="container-shell py-12">
       <article className="mx-auto max-w-4xl">
-        <p className="text-sm font-semibold uppercase tracking-wide text-emerald-700">Cập nhật: 20/06/2026</p>
-        <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Chính sách thanh toán</h1>
-        <p className="mt-4 text-base leading-7 text-slate-600">
+        <p className="text-sm font-semibold uppercase tracking-wide text-brand-700">Cập nhật: 20/06/2026</p>
+        <h1 className="mt-3 text-3xl font-bold tracking-tight text-brand-900 sm:text-4xl">Chính sách thanh toán</h1>
+        <p className="mt-4 text-base leading-7 text-ink/70">
           Chính sách này giúp bạn hiểu cách AIContent360 xử lý thanh toán và hỗ trợ đối với sản phẩm số, tài nguyên AI và công cụ được
           giới thiệu trên website.
         </p>
         <div className="mt-8 space-y-5">
           {policies.map((policy) => (
-            <section key={policy.title} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-lg font-semibold text-slate-950">{policy.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{policy.body}</p>
+            <section key={policy.title} className="rounded-lg border border-ink/12 bg-white p-6 shadow-sm">
+              <h2 className="text-lg font-semibold text-brand-900">{policy.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-ink/70">{policy.body}</p>
             </section>
           ))}
         </div>
-        <div className="mt-6 rounded-lg border border-emerald-200 bg-emerald-50 p-5 text-sm leading-7 text-emerald-950">
+        <div className="mt-6 rounded-lg border border-brand-500 bg-brand-50 p-5 text-sm leading-7 text-brand-900">
           Cần hỗ trợ giao dịch? Gửi thông tin đơn hàng tới{" "}
           <a href={`mailto:${siteConfig.contact.email}`} className="font-semibold underline">
             {siteConfig.contact.email}

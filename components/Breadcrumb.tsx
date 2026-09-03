@@ -16,7 +16,7 @@ export function Breadcrumb({ items }: { items: { label: string; href?: string }[
 
   return (
     <>
-      <nav className="text-sm text-slate-500">
+      <nav className="text-sm text-ink/55">
         {items.map((item, i) => (
           <span key={item.label}>
             {item.href ? <Link href={item.href} className="hover:text-brand-700">{item.label}</Link> : item.label}

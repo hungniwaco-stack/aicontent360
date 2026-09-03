@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { HeroSection } from "@/components/HeroSection";
+import { FeaturedProducts } from "@/components/FeaturedProducts";
+import { ProductGuide } from "@/components/ProductGuide";
 import { CategoryCard } from "@/components/CategoryCard";
 import { ToolCard } from "@/components/ToolCard";
 import { BlogCard } from "@/components/BlogCard";
@@ -32,11 +34,13 @@ export default function HomePage() {
   return (
     <div>
       <HeroSection />
+      <FeaturedProducts />
+      <ProductGuide />
       <div className="container-shell space-y-12 py-10 sm:py-12">
         <section>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-semibold text-emerald-700">Chọn theo việc cần làm</p>
+              <p className="eyebrow">Chọn theo việc cần làm</p>
               <h2 className="mt-2 text-2xl font-bold text-brand-900">Lối tắt đến đúng nhóm công cụ</h2>
             </div>
           </div>
@@ -51,7 +55,7 @@ export default function HomePage() {
         <section>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-semibold text-emerald-700">{tools.length} công cụ đang có trong catalog</p>
+              <p className="eyebrow">{tools.length} công cụ đang có trong catalog</p>
               <h2 className="mt-2 text-2xl font-bold text-brand-900">Công cụ AI nổi bật</h2>
             </div>
             <Link href="/cong-cu-ai" className="text-sm font-semibold text-brand-700 hover:text-brand-900">Xem toàn bộ thư viện</Link>
@@ -64,27 +68,27 @@ export default function HomePage() {
         </section>
 
         <section className="grid gap-4 lg:grid-cols-3">
-          <div className="rounded-lg border border-slate-200 bg-white p-5">
+          <div className="rounded-lg border border-ink/12 bg-white p-5">
             <p className="text-3xl font-bold text-brand-900">{tools.filter((tool) => tool.isFeatured).length}</p>
             <h3 className="mt-3 font-semibold text-brand-900">Công cụ ưu tiên triển khai</h3>
-            <p className="mt-2 text-sm leading-6 text-slate-600">Danh sách nổi bật tập trung vào công cụ có đầu ra rõ, dễ dùng cho creator mới bắt đầu.</p>
+            <p className="mt-2 text-sm leading-6 text-ink/70">Danh sách nổi bật tập trung vào công cụ có đầu ra rõ, dễ dùng cho creator mới bắt đầu.</p>
           </div>
-          <div className="rounded-lg border border-slate-200 bg-white p-5">
-            <p className="text-3xl font-bold text-emerald-700">5</p>
+          <div className="rounded-lg border border-ink/12 bg-white p-5">
+            <p className="text-3xl font-bold text-brand-700">5</p>
             <h3 className="mt-3 font-semibold text-brand-900">Nền tảng nội dung</h3>
-            <p className="mt-2 text-sm leading-6 text-slate-600">TikTok, YouTube, Facebook, Website và Affiliate được gắn tag để lọc nhanh theo kênh làm việc.</p>
+            <p className="mt-2 text-sm leading-6 text-ink/70">TikTok, YouTube, Facebook, Website và Affiliate được gắn tag để lọc nhanh theo kênh làm việc.</p>
           </div>
-          <div className="rounded-lg border border-slate-200 bg-white p-5">
-            <p className="text-3xl font-bold text-amber-600">{blogPosts.length}</p>
+          <div className="rounded-lg border border-ink/12 bg-white p-5">
+            <p className="text-3xl font-bold text-brand-700">{blogPosts.length}</p>
             <h3 className="mt-3 font-semibold text-brand-900">Bài hướng dẫn thực chiến</h3>
-            <p className="mt-2 text-sm leading-6 text-slate-600">Nội dung giáo dục đi cùng catalog để người dùng biết chọn tool và áp dụng vào workflow thật.</p>
+            <p className="mt-2 text-sm leading-6 text-ink/70">Nội dung giáo dục đi cùng catalog để người dùng biết chọn tool và áp dụng vào workflow thật.</p>
           </div>
         </section>
 
         <section>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-semibold text-emerald-700">Học để dùng đúng</p>
+              <p className="eyebrow">Học để dùng đúng</p>
               <h2 className="mt-2 text-2xl font-bold text-brand-900">Bài viết mới nhất</h2>
             </div>
             <Link href="/blog" className="text-sm font-semibold text-brand-700 hover:text-brand-900">Xem blog</Link>

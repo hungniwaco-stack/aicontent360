@@ -5,9 +5,9 @@ import { trackEvent } from "@/lib/analytics";
 
 export function CTASection() {
   return (
-    <section className="rounded-2xl bg-brand-900 p-8 text-white">
+    <section className="rounded-lg bg-brand-900 p-8 text-white">
       <h2 className="text-2xl font-bold">Chọn công cụ và xem hướng dẫn triển khai</h2>
-      <p className="mt-2 text-slate-200">Mỗi công cụ có trang giới thiệu riêng để bạn xem công dụng, đầu ra mẫu và link hướng dẫn chi tiết.</p>
+      <p className="mt-2 text-paper/80">Mỗi công cụ có trang giới thiệu riêng để bạn xem công dụng, đầu ra mẫu và link hướng dẫn chi tiết.</p>
       <div className="mt-4 flex flex-wrap gap-3">
         <Link
           href="/cong-cu-ai"

@@ -26,7 +26,7 @@ export default function Page() {
         <h2 className="mb-4 text-2xl font-bold">Chuyên mục</h2>
         <div className="flex flex-wrap gap-2">
           {blogCategories.map((category) => (
-            <Link key={category} href={`/blog/chuyen-muc/${encodeURIComponent(category.toLowerCase().replaceAll(" ", "-").replaceAll("&", "va"))}`} className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700 hover:bg-slate-200">
+            <Link key={category} href={`/blog/chuyen-muc/${encodeURIComponent(category.toLowerCase().replaceAll(" ", "-").replaceAll("&", "va"))}`} className="rounded-full bg-ink/[0.05] px-3 py-1 text-sm text-ink/80 hover:bg-ink/10">
               {category}
             </Link>
           ))}

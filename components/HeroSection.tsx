@@ -22,97 +22,66 @@ export function HeroSection() {
     router.push(`/cong-cu-ai${params.toString() ? `?${params.toString()}` : ""}`);
   };
 
+  const stats = [
+    { value: tools.length, label: "công cụ" },
+    { value: goalCount, label: "mục tiêu" },
+    { value: blogPosts.length, label: "bài hướng dẫn" }
+  ];
+
   return (
-    <section className="border-b border-slate-200 bg-white">
+    <section className="border-b-2 border-ink/10 bg-paper">
       <div className="container-shell py-8 sm:py-12">
-        <div className="overflow-hidden rounded-2xl bg-brand-900 text-white shadow-xl">
-          <div className="grid gap-8 p-6 sm:p-9 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,.8fr)] lg:items-center lg:p-10">
-            <div>
-              <p className="text-sm font-bold text-emerald-300">Danh mục công cụ AI cho creator Việt</p>
-              <h1 className="mt-3 max-w-4xl text-4xl font-black leading-tight sm:text-5xl">
-                Bạn muốn AI giúp gì
-                <span className="block text-amber-300">hôm nay?</span>
-              </h1>
-              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200">
-                Tìm đúng công cụ để lên ý tưởng, viết kịch bản, tăng view, xây kênh affiliate hoặc sản xuất nội dung theo ngách.
-              </p>
-              <form onSubmit={handleSubmit} className="mt-7 flex max-w-3xl flex-col gap-2 rounded-lg bg-white p-2 shadow-lg sm:flex-row">
+        <div className="relative overflow-hidden rounded-xl border border-ink/10 bg-[#F4EDDF] text-ink shadow-[0_12px_36px_-14px_rgba(33,28,21,0.22)]">
+          <span className="absolute left-0 top-0 h-full w-1.5 bg-brand-700" aria-hidden />
+          <div className="p-7 sm:p-10 lg:p-14">
+            <p className="eyebrow text-brand-700">{"// danh mục công cụ ai cho creator việt"}</p>
+            <h1 className="mt-4 max-w-4xl text-4xl font-extrabold leading-[1.04] tracking-tight sm:text-6xl">
+              Bạn muốn AI giúp gì
+              <span className="block text-brand-700">hôm nay?</span>
+            </h1>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-ink/70">
+              Tìm đúng công cụ để lên ý tưởng, viết kịch bản, tăng view, xây kênh affiliate hoặc sản xuất nội dung theo ngách.
+            </p>
+
+            <form onSubmit={handleSubmit} className="mt-8 flex max-w-2xl flex-col gap-1.5 rounded-lg border-2 border-ink/15 bg-white p-1.5 shadow-sm sm:flex-row">
               <label htmlFor="hero-tool-search" className="sr-only">Tìm công cụ AI</label>
               <input
                 id="hero-tool-search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Nhập mục tiêu, ngách hoặc tên công cụ..."
-                className="min-h-12 flex-1 rounded-md border border-transparent px-4 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-blue-100"
+                className="min-h-12 flex-1 rounded-md border border-transparent bg-transparent px-4 text-sm text-ink outline-none placeholder:text-ink/40 focus:border-brand-500"
               />
               <button
                 type="submit"
-                className="min-h-12 rounded-md bg-red-600 px-6 text-sm font-bold text-white transition-colors hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="min-h-12 rounded-md bg-brand-700 px-6 text-sm font-bold uppercase tracking-wide text-paper transition-colors hover:bg-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-900"
               >
                 Tìm công cụ
               </button>
             </form>
-            <div className="mt-4 flex flex-wrap gap-2">
+
+            <div className="mt-5 flex flex-wrap gap-2">
               {popularGoals.map((goal) => (
                 <Link
                   key={goal}
                   href={{ pathname: "/cong-cu-ai", query: { goal } }}
-                  className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-slate-100 transition-colors hover:bg-white/20"
+                  className="rounded-md border border-ink/20 px-3 py-1.5 font-mono text-xs text-ink/70 transition-colors hover:border-brand-700 hover:text-brand-700"
                   onClick={() => trackEvent("cta_click", { cta_name: "hero_goal_chip", placement: "hero", goal })}
                 >
                   {goal}
                 </Link>
               ))}
             </div>
-              <div className="mt-6 grid max-w-xl grid-cols-3 gap-3 border-t border-white/15 pt-5">
-                <div>
-                  <p className="text-2xl font-black">{tools.length}</p>
-                  <p className="mt-1 text-xs text-slate-300">công cụ</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-black text-emerald-300">{goalCount}</p>
-                  <p className="mt-1 text-xs text-slate-300">mục tiêu</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-black text-amber-300">{blogPosts.length}</p>
-                  <p className="mt-1 text-xs text-slate-300">bài hướng dẫn</p>
-                </div>
-              </div>
-            </div>
 
-            <div className="rounded-2xl border border-white/15 bg-white/10 p-5 shadow-2xl sm:p-6">
-              <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-red-600 px-3 py-1.5 text-xs font-bold uppercase">Công cụ nổi bật</span>
-                <span className="text-xs font-bold text-emerald-300">Miễn phí</span>
-              </div>
-              <h2 className="mt-5 text-2xl font-black leading-tight">
-                Tìm Video Viral
-                <span className="block text-amber-300">Trước Khi Đối Thủ Biết</span>
-              </h2>
-              <p className="mt-3 text-sm leading-6 text-slate-200">
-                Quét hàng triệu video, tìm ngách chưa bão hòa và phân tích chiến lược nội dung bằng AI.
-              </p>
-              <div className="mt-5 grid grid-cols-3 gap-2 text-center">
-                <div className="rounded-lg bg-white/10 p-3">
-                  <p className="text-lg font-black text-emerald-300">Cao</p>
-                  <p className="mt-1 text-xs text-slate-300">traffic</p>
+            <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-3 border-t border-ink/12 pt-6 font-mono">
+              {stats.map((s) => (
+                <div key={s.label} className="flex items-baseline gap-2">
+                  <dt className="sr-only">{s.label}</dt>
+                  <dd className="text-2xl font-bold text-brand-700">{s.value}</dd>
+                  <dd className="text-xs uppercase tracking-wider text-ink/55">{s.label}</dd>
                 </div>
-                <div className="rounded-lg bg-white/10 p-3">
-                  <p className="text-lg font-black text-amber-300">Thấp</p>
-                  <p className="mt-1 text-xs text-slate-300">cạnh tranh</p>
-                </div>
-                <div className="rounded-lg bg-white/10 p-3">
-                  <p className="text-lg font-black text-red-300">60s</p>
-                  <p className="mt-1 text-xs text-slate-300">phân tích</p>
-                </div>
-              </div>
-              <Link
-                href="/cong-cu-ai/cong-cu-tim-video-viral"
-                className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-emerald-500 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-emerald-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Khám phá Viral Scanner
-              </Link>
-            </div>
+              ))}
+            </dl>
           </div>
         </div>
       </div>

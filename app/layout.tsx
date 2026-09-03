@@ -1,14 +1,23 @@
-﻿import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import type { Metadata } from "next";
+import { Be_Vietnam_Pro, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ZaloButton } from "@/components/ZaloButton";
 import { siteConfig } from "@/data/siteConfig";
 import { AnalyticsScripts } from "@/components/AnalyticsScripts";
 
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-plus-jakarta",
+const sans = Be_Vietnam_Pro({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-sans",
+  display: "swap"
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "700"],
+  variable: "--font-mono",
   display: "swap"
 });
 
@@ -27,6 +36,11 @@ export const metadata: Metadata = {
     siteName: "AI Content Hub",
     locale: "vi_VN",
     type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Content Hub",
+    description: "Khám phá công cụ AI thực chiến để tạo content, tăng view và kiếm tiền online."
   }
 };
 
@@ -56,7 +70,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="vi">
-      <body className={plusJakarta.className}>
+      <body className={`${sans.variable} ${mono.variable}`}>
         {gtmId ? (
           <noscript>
             <iframe
@@ -73,6 +87,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main>{children}</main>
         <Footer />
+        <ZaloButton />
       </body>
     </html>
   );

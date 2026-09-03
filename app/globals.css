@@ -1,4 +1,4 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -7,15 +7,21 @@
 }
 
 body {
-  @apply bg-slate-50 text-slate-900 antialiased;
+  @apply bg-paper text-ink font-sans antialiased;
 }
 
 .container-shell {
   @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
 }
 
-.gradient-bg {
-  background:
-    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%),
-    linear-gradient(90deg, rgba(30, 64, 175, 0.08), rgba(5, 150, 105, 0.08));
+/* Nhãn "eyebrow" kiểu dòng lệnh — device nhận diện */
+.eyebrow {
+  @apply font-mono text-xs font-medium uppercase tracking-[0.18em] text-brand-700;
+}
+
+/* Grain rất nhẹ cho khối mực, đỡ cảm giác phẳng-AI */
+.ink-grain {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 3px 3px;
 }

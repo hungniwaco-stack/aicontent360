@@ -14,10 +14,10 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-slate-200 bg-white">
+    <footer className="mt-16 border-t border-ink/12 bg-white">
       <div className="container-shell grid gap-4 py-10 sm:grid-cols-2 lg:grid-cols-3">
         {links.map((item) => (
-          <Link key={item.href} href={item.href} className="text-sm text-slate-600 hover:text-brand-700">
+          <Link key={item.href} href={item.href} className="text-sm text-ink/70 hover:text-brand-700">
             {item.label}
           </Link>
         ))}
