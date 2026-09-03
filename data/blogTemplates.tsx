@@ -189,7 +189,7 @@ export function BlogDetail({ slug }: { slug: string }) {
         <TableOfContents items={sections} />
       </article>
       {post.faq.length > 0 ? <section id="faq"><FAQSection faqs={post.faq} /></section> : null}
-      <RelatedPosts currentSlug={post.slug} />
+      <RelatedPosts currentSlug={post.slug} category={post.category} />
     </div>
   );
 }
