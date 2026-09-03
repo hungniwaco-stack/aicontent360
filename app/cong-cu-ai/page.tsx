@@ -62,8 +62,28 @@ function getToolsBySlugs(slugs: string[]) {
     .filter((tool): tool is (typeof tools)[number] => Boolean(tool));
 }
 
+function getAllToolsByCategory() {
+  const excludedSlugs = new Set(["cong-cu-tim-video-viral"]);
+  const byCategory = new Map<string, typeof tools>();
+
+  for (const tool of tools) {
+    if (excludedSlugs.has(tool.slug)) continue;
+    const existing = byCategory.get(tool.category);
+    if (existing) {
+      existing.push(tool);
+    } else {
+      byCategory.set(tool.category, [tool]);
+    }
+  }
+
+  return Array.from(byCategory.entries())
+    .sort((a, b) => b[1].length - a[1].length)
+    .map(([category, categoryTools]) => ({ category, tools: categoryTools }));
+}
+
 export default function ToolsPage() {
   const featuredTool = tools.find((tool) => tool.slug === "cong-cu-tim-video-viral");
+  const allToolGroups = getAllToolsByCategory();
 
   return (
     <div className="container-shell py-12">
@@ -158,6 +178,28 @@ export default function ToolsPage() {
           );
         })}
       </div>
+
+      <section className="mt-14">
+        <div className="mb-4 max-w-3xl border-t border-ink/12 pt-10">
+          <p className="text-sm font-semibold text-brand-700">Danh mục đầy đủ</p>
+          <h2 className="mt-2 text-2xl font-bold text-brand-900">Toàn bộ thư viện công cụ</h2>
+          <p className="mt-2 text-sm leading-6 text-ink/70">
+            Tất cả {tools.length - 1} công cụ hiện có trên AIContent360, nhóm theo chủ đề, để bạn dễ tìm đúng thứ cần mà không phải đoán mò.
+          </p>
+        </div>
+        <div className="space-y-10">
+          {allToolGroups.map((group) => (
+            <div key={group.category}>
+              <h3 className="text-lg font-bold text-brand-900">{group.category}</h3>
+              <div className="mt-4 grid gap-4 md:grid-cols-3">
+                {group.tools.map((tool) => (
+                  <ToolCard key={tool.id} tool={tool} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <a
         href="https://hungniwaco.vn"
