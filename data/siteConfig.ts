@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "AI Content Hub",
+  name: "AIContent360",
   description:
     "Nền tảng ứng dụng AI để tạo content, tăng view và kiếm tiền online hiệu quả.",
   url: "https://aicontent360.shop",
@@ -7,6 +7,12 @@ export const siteConfig = {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@aicontent360.shop",
     responseTime: "Trong 24 giờ làm việc",
     businessName: "AIContent360"
+  },
+  defaultOgImage: {
+    url: "/og-default.png",
+    width: 1200,
+    height: 630,
+    alt: "AIContent360 — công cụ AI cho creator và affiliate marketer Việt Nam"
   },
   nav: [
     { href: "/", label: "Trang chủ" },

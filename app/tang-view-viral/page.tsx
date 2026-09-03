@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     description:
       "Hướng dẫn thực chiến dùng AI để tìm video viral, phân tích đối thủ, bắt trend đúng ngách và tăng tốc tăng trưởng TikTok/YouTube.",
     url: `${siteConfig.url}/tang-view-viral`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 

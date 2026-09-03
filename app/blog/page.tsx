@@ -5,16 +5,17 @@ import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Blog AI Content Hub: Hướng dẫn tạo content, tăng view, kiếm tiền bằng AI",
+  title: "Blog AIContent360: Hướng dẫn tạo content, tăng view, kiếm tiền bằng AI",
   description:
     "Tổng hợp bài viết thực chiến về tạo content bằng AI, tăng view viral, affiliate và workflow ứng dụng AI cho creator.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog AI Content Hub",
+    title: "Blog AIContent360",
     description:
       "Tổng hợp bài viết thực chiến về tạo content bằng AI, tăng view viral, affiliate và workflow ứng dụng AI cho creator.",
     url: `${siteConfig.url}/blog`,
-    type: "website"
+    type: "website",
+    images: [siteConfig.defaultOgImage]
   }
 };
 
