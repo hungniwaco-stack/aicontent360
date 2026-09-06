@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   },
   description: "Nền tảng ứng dụng AI để tạo content, tăng view và kiếm tiền online.",
   alternates: { canonical: "/" },
+  other: {
+    "msvalidate.01": "51A4227C796B986F942207FFC32269A1"
+  },
   openGraph: {
     title: "AIContent360",
     description: "Khám phá công cụ AI thực chiến để tạo content, tăng view và kiếm tiền online.",
